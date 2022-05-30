@@ -1,0 +1,7 @@
+<h1>Index events à mettre en page 😊</h1>
+
+<% @events.each do |event|%>
+Titre : <%= event.name %>
+Description : <%= event.description %>
+Organisée par : <%= event.user.first_name %>
+<% end %>
