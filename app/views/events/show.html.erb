@@ -1,0 +1,12 @@
+<h1>Show d'un event</h1>
+
+<%= link_to "Back to all events", events_path  %>
+
+<%= @event.user.first_name %> vous propose :
+<%= @event.name %> !
+
+Date de debut : <%= @event.start_at %>
+Date de fin : <%= @event.end_at %>
+
+Prix : <%= @event.price %> €
+
