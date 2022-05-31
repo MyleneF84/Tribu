@@ -60,7 +60,3 @@ event3 = Event.create!(
 )
 
 puts 'Finished!'
-
-
-
-
