@@ -33,7 +33,7 @@ event1 = Event.create!(
   price: "10",
   start_at: Date.today,
   end_at: Date.tomorrow,
-  phone_number: "01 48 65 85 96",
+  phone_number: "0148658596",
   user: user1
 )
 
@@ -44,7 +44,7 @@ event2 = Event.create!(
   price: "5",
   start_at: Date.yesterday,
   end_at: Date.today,
-  phone_number: "01 75 49 63 52",
+  phone_number: "0175496352",
   user: user2
 )
 
@@ -55,7 +55,7 @@ event3 = Event.create!(
   price: "20",
   start_at: Date.today,
   end_at: Date.tomorrow,
-  phone_number: "06 99 58 42 56",
+  phone_number: "0699584256",
   user: user3
 )
 puts 'Finished!'
