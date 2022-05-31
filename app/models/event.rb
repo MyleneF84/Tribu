@@ -8,5 +8,4 @@ class Event < ApplicationRecord
   validates :phone_number, numericality: { only_integer: true }
   validates :start_at, :end_at, presence: true
   has_one_attached :photo
-
 end
