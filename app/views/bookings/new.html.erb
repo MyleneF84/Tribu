@@ -1,0 +1,7 @@
+<%#if policy(@booking).new? %>
+
+<%= simple_form_for([@event, @booking]) do |f| %>
+<%= f.input :reviews %>
+<%= f.submit class: 'btn-signup'%>
+<% end %>
+<% end %>
