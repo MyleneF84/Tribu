@@ -36,6 +36,8 @@ event1 = Event.create!(
   phone_number: "0148658596",
   user: user1
 )
+event1.photo.attach(io: URI.open("https://res.cloudinary.com/dvtuelr2w/image/upload/v1654003346/maxresdefault_kjiom9.jpg"), filename: "image")
+event1.save
 
 event2 = Event.create!(
   name: "Marché aux fleurs",
@@ -47,6 +49,8 @@ event2 = Event.create!(
   phone_number: "0175496352",
   user: user2
 )
+event2.photo.attach(io: URI.open("https://res.cloudinary.com/dvtuelr2w/image/upload/v1654003265/marche-aux-fleurs-elisabeth-ii-ile-de-la-cite-paris-4-0_w0abqn.jpg"), filename: "image")
+event2.save
 
 event3 = Event.create!(
   name: "Balade à Vélo",
@@ -58,6 +62,8 @@ event3 = Event.create!(
   phone_number: "0699584256",
   user: user3
 )
+event3.photo.attach(io: URI.open("https://res.cloudinary.com/dvtuelr2w/image/upload/v1654003119/image_yoymeb.jpg"), filename: "image")
+event3.save
 puts 'Finished!'
 
 puts 'Creating Bookings'
