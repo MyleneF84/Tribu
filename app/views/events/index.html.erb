@@ -5,3 +5,5 @@ Titre : <%= event.name %>
 Description : <%= event.description %>
 Organisée par : <%= event.user.first_name %>
 <% end %>
+
+<%= link_to "New event", new_event_path if policy(Event).new? %>
