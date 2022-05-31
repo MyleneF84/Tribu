@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "dashboard", to: "pages#dashboard"
   resources :events do
-    resources :bookings, only: %i[create new]
+    resources :bookings, only: %i[create new show]
   end
 end
