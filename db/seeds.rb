@@ -60,12 +60,12 @@ event3 = Event.create!(
 )
 puts 'Finished!'
 
-puts 'Creating bookings'
+puts 'Creating Bookings'
 Booking.create!(
   user_id: user1.id,
   event_id: event2.id,
   rating: "4",
-  status: "accepting",
+  status: "accepted",
   reviews: "45"
 )
 
@@ -81,7 +81,7 @@ Booking.create!(
   user_id: user3.id,
   event_id: event1.id,
   rating: "3",
-  status: "dinied",
+  status: "denied",
   reviews: "24"
 )
 puts 'Finished!'
