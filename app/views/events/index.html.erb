@@ -1,7 +1,10 @@
 <h1>Index events à mettre en page 😊</h1>
 
 <% @events.each do |event|%>
-Titre : <%= event.name %>
+
+Titre : <%= link_to event.name, event_path(event) %>
 Description : <%= event.description %>
 Organisée par : <%= event.user.first_name %>
 <% end %>
+
+<%= link_to "New event", new_event_path if policy(Event).new? %>

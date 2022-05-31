@@ -1,12 +1,34 @@
-<h1>Show d'un event</h1>
+//////Show d'un Event/////
 
 <%= link_to "Back to all events", events_path  %>
 
-<%= @event.user.first_name %> vous propose :
-<%= @event.name %> !
+<h6><%= @event.user.first_name %> vous propose :</h6>
+<h1><%= @event.name %> !</h1>
 
-Date de debut : <%= @event.start_at %>
-Date de fin : <%= @event.end_at %>
+<% if @event.photo.present? %>
+  <%= cl_image_tag @event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+<% end %>
 
-Prix : <%= @event.price %> €
 
+<%= @event.description %>
+  <ul>
+    <li>Date de debut : <%= @event.start_at %></li>
+  <li>Date de fin : <%= @event.end_at %></li>
+  <li>Adresse : <%= @event.address %></li>
+  <li>Tel : <%= @event.phone_number %></li>
+  <li>Prix : <%= @event.price %> €</li>
+  <li>Nombre de participants : <%= @event.number_of_participants %></li>
+</ul>
+
+
+
+
+
+
+
+<% if policy(@event).edit? %>
+  <%= link_to "Edit this event", edit_event_path(@event) %> |
+<% end %>
+
+
+<%= button_to "Destroy this event", @event, method: :delete if policy(@event).destroy? %>

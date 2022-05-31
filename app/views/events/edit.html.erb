@@ -1,0 +1,14 @@
+<%= simple_form_for(@event) do |f| %>
+<%= f.input :photo, as: :file %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :address %>
+<%= f.input :phone_number%>
+<%= f.input :price %>
+<%= f.input :start_at %>
+<%= f.input :end_at %>
+<%= f.input :number_of_participants%>
+<%= f.submit "#{ @event.persisted? ? 'Update' : 'Create' } my event", class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to "Back", event_path %>
