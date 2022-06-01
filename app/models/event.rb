@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
+  has_many :event_categories, dependent: :destroy
+  has_many :categories, through: :event_categories
   has_many :bookings
 
   validates :name, presence: true
