@@ -1,0 +1,37 @@
+.footer {
+  background: #FCFAEE;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  flex-direction: column;
+  height: 10vh;
+}
+
+.footer-copyright {
+  font-family: "Barlow Semi Condensed", "Roboto", "sans-serif";
+  color: #60435F;
+  margin-top: 2ch;
+  display: flex;
+  align-items: center;
+}
+
+.footer-links {
+  margin-bottom: 2ch;
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: #60435F;
+  opacity: 0.5;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+  color: #FF5E5B;
+}
