@@ -1,5 +1,13 @@
+require "open-uri"
+require "nokogiri"
+
+
+
+
+
 Booking.destroy_all
 Event.destroy_all
+Category.destroy_all
 User.destroy_all
 
 puts 'Creating Users...'
@@ -24,6 +32,44 @@ user3 = User.create!(
   password: "azerty"
 )
 puts 'Finished!'
+
+# TODO: creeer les categories
+
+puts 'Creating categories'
+
+# parametres de scrapping
+distance = 40 # kilometres
+location = "france,ile-de-france,seine-et-marne,moret-loing-et-orvanne"
+date = Date.today.strftime("%Y_%m_%d") # aka a partir d'aujourd'hui
+categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"]
+#categories = ["brocante-vide-grenier", "nature-environnement", ...]
+
+# SCRAPPING
+categories.each do |category|
+  url = "https://www.eterritoire.fr/evenements/#{location}/_datedebut-#{date},#{category},xrac-#{distance}"
+  html_file = URI.open(url).read
+  html_doc = Nokogiri::HTML(html_file)
+  html_doc.search('[itemtype="https://schema.org/Event"]').each do |element|
+    event_name = element.search('[itemprop="name"]').first.inner_html
+    description = element.search(".dsc p").first.inner_html
+    address = element.search('[itemprop="address"]').inner_text
+    start_at = element.search('[itemprop="startDate"]').first.attributes["content"].value
+    end_at = element.search('[itemprop="endDate"]').first.attributes["content"].value
+    img = "https://www.eterritoire.fr/#{element.search('img.i.e').first.attributes["src"].value}"
+    event1 = Event.create!(
+      name: event_name,
+      description: description,
+      address: address,
+      price: "0",
+      start_at: Date.parse(start_at),
+      end_at: Date.parse(end_at),
+      phone_number: "0148658596"
+    )
+    event1.photo.attach(io: URI.open(img), filename: "image")
+    event1.save
+    puts "Event #{img} created 🥳ra"
+  end
+end
 
 puts 'Creating Events...'
 event1 = Event.create!(
