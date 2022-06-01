@@ -1,12 +1,37 @@
-.navbar-lewagon {
+.navbar-tribu {
   justify-content: space-between;
-  background: white;
+  background: #FF5E5B;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-tribu .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-tribu .navbar-brand img {
   width: 40px;
+  margin-top: 1ch;
+  margin-bottom: 1ch;
+  border-radius: 50px;
+}
+
+.navbar-tribu .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-tribu .text-link {
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  letter-spacing: 0.2ch;
+  margin-right: 2ch;
+}
+
+.navbar-tribu .btn-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 2ch;
+  font-family: Arial, Helvetica, sans-serif;
 }
