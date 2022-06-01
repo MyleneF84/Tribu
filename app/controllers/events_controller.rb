@@ -2,7 +2,9 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    # params[:query][:city]
     @events = policy_scope(Event)
+    # @events = policy_scope(Event).where(city: params[:query][:city])
   end
 
   def show

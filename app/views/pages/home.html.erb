@@ -2,11 +2,15 @@
 
 <%= render "shared/banner" %>
 
-<%= link_to "Voir toutes les activités", events_path%>
-<%= link_to "Proposez une activité", new_event_path %>
-
 <h3>Evenements locaux à la carte</h3>
-<p>ICI CODER LES CARDS</p>
+
 <% @last_events.each do |event| %>
 <strong><%= link_to event.name, event_path(event) %>|</strong>
 <% end %>
+
+<p>ICI CODER LES CARDS</p>
+
+<%= link_to "Voir toutes les activités", events_path%>
+<%= link_to "Proposez une activité", new_event_path %>
+
+<%= render "shared/buttons" %>
