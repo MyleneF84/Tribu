@@ -13,7 +13,7 @@
 
 .footer-copyright {
   font-family: "Barlow Semi Condensed", "Roboto", "sans-serif";
-  color: #60435F;
+  color: $prune;
   margin-top: 2ch;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   align-items: center;
 }
 .footer-links a {
-  color: #60435F;
+  color: $prune;
   opacity: 0.5;
   text-decoration: none;
   font-size: 24px;
@@ -33,5 +33,5 @@
 }
 .footer-links a:hover {
   opacity: 1;
-  color: #FF5E5B;
+  color:  $saumon;
 }
