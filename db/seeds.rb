@@ -1,10 +1,6 @@
 require "open-uri"
 require "nokogiri"
 
-
-
-
-
 Booking.destroy_all
 Event.destroy_all
 Category.destroy_all
@@ -33,16 +29,14 @@ user3 = User.create!(
 )
 puts 'Finished!'
 
-# TODO: creeer les categories
+
 
 puts 'Creating categories'
-
 # parametres de scrapping
 distance = 40 # kilometres
 location = "france,ile-de-france,seine-et-marne,moret-loing-et-orvanne"
 date = Date.today.strftime("%Y_%m_%d") # aka a partir d'aujourd'hui
 categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"]
-#categories = ["brocante-vide-grenier", "nature-environnement", ...]
 
 # SCRAPPING
 categories.each do |category|
