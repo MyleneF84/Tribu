@@ -5,13 +5,12 @@
   background-color: grey;
   padding: 10px;
   height: 600px;
-  width: 400px;
 }
 
 .card-product-infos-top {
   display: flex;
   text-align: center;
-  border-bottom: 2px solid #FFEC43;
+  border-bottom: 2px solid $jaune_pale
 }
 
 .card-product-infos-top img {
@@ -24,5 +23,5 @@
 }
 
 .card-product-infos-bottom {
-  color: #FF5E5B
+  color: $saumon
 }
