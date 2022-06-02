@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-tribu">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1h94YcXLVdaZ5d7atq7HiGY4f4pspnvVfwA&usqp=CAU" %>
     <% end %>
 
@@ -11,17 +11,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Deviens un tributeur", "#", class: "nav-link", class:"text-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlp-7g19fT3I_iPmo11mrsiraKmf9c43EYIQ&usqp=CAU", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Chercher un évent", events_path, class: "dropdown-item" %>
+              <%= link_to "My Dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "Mon profil", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
