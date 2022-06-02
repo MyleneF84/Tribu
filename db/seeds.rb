@@ -3,7 +3,6 @@ require "nokogiri"
 
 Booking.destroy_all
 Event.destroy_all
-Category.destroy_all
 User.destroy_all
 
 puts 'Creating Users...'
@@ -60,7 +59,8 @@ categories.each do |category|
       price: "0",
       start_at: Date.parse(start_at),
       end_at: Date.parse(end_at),
-      phone_number: "0148658596"
+      phone_number: "0148658596",
+      category: [category]
     )
     event1.photo.attach(io: URI.open(img), filename: "image")
     event1.save
