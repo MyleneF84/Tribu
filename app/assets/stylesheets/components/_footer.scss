@@ -1,37 +1,42 @@
 .footer {
   background: $creme;
-  width: 100%; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: rgba(0,0,0,0.3);
-  flex-direction: column;
-  padding: 25px 0;
-  margin-top: 40px;
-}
+
 
 .login {
   position: relative;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  flex-direction: column;
+  height: $footer-height;
 }
 
 .footer-copyright {
   font-family: "Barlow Semi Condensed", "Roboto", "sans-serif";
   color: $prune;
+  margin-top: 2ch;
   display: flex;
   align-items: center;
 }
 
 .footer-links {
+  margin-bottom: 2ch;
   display: flex;
   align-items: center;
-}
-.footer-links a {
-  color: $prune;
-  opacity: 0.5;
+  opacity: 0.6;
   text-decoration: none;
   font-size: 24px;
   padding: 10px 5px;
 }
+
+.footer-links a {
+  margin-top: 1ch;
+  color: $prune;
+}
+
 .footer-links a:hover {
   opacity: 1;
   color:  $saumon

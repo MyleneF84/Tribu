@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   #has_many :event_categories, dependent: :destroy
   #has_many :categories, through: :event_categories
   has_many :bookings
-
+  serialize :category, Array
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
