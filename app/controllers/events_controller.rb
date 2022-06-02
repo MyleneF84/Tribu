@@ -3,22 +3,14 @@ class EventsController < ApplicationController
 
   def index
     # search sur la destination
-    if params[:query].present?
-      if params[:query][:city].present?
-        @events = policy_scope(Event).where("address ILIKE ?", "%#{params[:query][:city]}%")
-      else
-        @events = policy_scope(Event)
-      end
-    end
-    # search sur les dates
-    if params[:date].present?
-      @events = policy_scope(Event).where("start_at <= ?", "%#{params[:date][:start_date]}%").where("end_at >= ?", "%#{params[:date][:start_date]}%") ||
-                policy_scope(Event).where("start_at <= ?", "%#{params[:date][:end_date]}%").where("end_at >= ?", "%#{params[:date][:end_date]}%") ||
-                policy_scope(Event).where("start_at <= ?", "%#{params[:date][:end_date]}%").where("end_at <= ?", "%#{params[:date][:end_date]}%") ||
-                policy_scope(Event).where("start_at <= ?", "%#{params[:date][:start_date]}%").where("end_at >= ?", "%#{params[:date][:end_date]}%")
-      @events = @events.uniq
-    else
-      @events = policy_scope(Event)
+    @events = policy_scope(Event)
+    @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city)
+    if params.dig(:query, :start_date).present?
+      @events = @events.where("start_at >= ?", params[:query][:start_date]).where("start_at <= ?", params[:query][:end_date]).distinct.or(
+        @events.where("end_at >= ?", params[:query][:start_date]).where("end_at <= ?", params[:query][:end_date]).distinct
+      ).or(
+        @events.where("start_at <= ?", params[:query][:start_date]).where("end_at >= ?", params[:query][:end_date]).distinct
+      )
     end
   end
 
