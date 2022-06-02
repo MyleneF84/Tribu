@@ -5,19 +5,24 @@
       <div class="card-form mt-4 mb-4 p-4 form-query">
         <h3 class="heading m-3 text-center">Trouvez le prochain évènement local près de vous </h3>
         <div class="d-flex justify-content-center px-5">
-        <%# raise %>
-          <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'bg-white d-flex p-2 query rounded-pill justify-content-between' } do |f| %>
-            <%= f.input :city, placeholder: 'ville, commune, code postal...', label: false,
-                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100', value: (params[:query][:city] if params[:query])},
-                        wrapper_html: { class: 'mb-0-important w-100' } %>
-            <%= f.input :start_date, as: :date, html5: true, placeholder: '01-01-2022', label: false,
-                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100', value: (params[:query][:start_date] if params[:query])},
-                        wrapper_html: { class: 'mb-0-important w-100' } %>
-            <%= f.input :end_date,  as: :date, html5: true, placeholder: '01-02-2022', label: false,
-                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100', value: (params[:query][:end_date] if params[:query])},
-                        wrapper_html: { class: 'mb-0-important w-100' } %>
-            <%# <%= f.input :categories, as: :check_boxes %> %
-            <button class="px-4 py-2 text-white rounded-pill bg-saumon border-0"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'd-flex flex-wrap p-2 query justify-content-between' } do |f| %>
+            <div class="checkbox tag-selector justify-content-center w-100 d-flex space-between mr-1">
+              <%= f.input :categories, as: :check_boxes, :collection => ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"] %>
+            </div>
+            <div class="w-50 pe-4">
+              <%= f.input :city, placeholder: 'ville, commune, code postal...', label: false,
+                          input_html: { class: 'bg-white border-0 rounded-pill form-control mx-2 w-100', value: (params[:query][:city] if params[:query])},
+                          wrapper_html: { class: 'mb-0-important w-100' } %>
+            </div>
+            <div class="w-50 d-flex">
+              <%= f.input :start_date, as: :date, html5: true, placeholder: '01-01-2022', label: false,
+                          input_html: { class: 'bg-white border-0 rounded-pill form-control mx-2 w-100', value: (params[:query][:start_date] if params[:query])},
+                          wrapper_html: { class: 'mb-0-important w-100' } %>
+              <%= f.input :end_date,  as: :date, html5: true, placeholder: '01-02-2022', label: false,
+                          input_html: { class: 'bg-white border-0 rounded-pill form-control mx-2 w-100', value: (params[:query][:end_date] if params[:query])},
+                          wrapper_html: { class: 'mb-0-important w-100' } %>
+              <button class="px-4 py-2 text-white rounded-pill bg-saumon border-0"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
           <% end %>
         </div>
       </div>
