@@ -1,16 +1,13 @@
 .footer {
   background: $creme;
   position: absolute;
-  width: 100%; height: 50px;
   bottom: 0; left: 0; right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 200px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   flex-direction: column;
-  height: 16vh;
 }
 
 .login {
@@ -20,23 +17,26 @@
 .footer-copyright {
   font-family: "Barlow Semi Condensed", "Roboto", "sans-serif";
   color: $prune;
-  margin-top: 6ch;
+  margin-top: 2ch;
   display: flex;
   align-items: center;
 }
 
 .footer-links {
-  margin-bottom: 6ch;
+  margin-bottom: 2ch;
   display: flex;
   align-items: center;
-}
-.footer-links a {
-  color: $prune;
-  opacity: 0.5;
+  opacity: 0.6;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
+
+.footer-links a {
+  margin-top: 1ch;
+  color: $prune;
+}
+
 .footer-links a:hover {
   opacity: 1;
   color:  $saumon
