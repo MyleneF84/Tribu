@@ -6,9 +6,12 @@
             <img src="https://w7.pngwing.com/pngs/176/67/png-transparent-person-logo-people-travel-text-rectangle-logo.png">
             </div>
             <div>
-              <h4><%= @event.user.first_name %></h4>
+              <% if @event.user.present? %>
+              <h4><%= @event.user.first_name%> vous propose :</h4>
+              <% else %>
+              <h4>placeholder pour city</h4>
+              <% end %>
               <h1><%= @event.name %></h1>
-              <h6>Commune</h6>
             </div>
             <h4 id=tag-price><%= @event.price %> €</h4>
           </div>
