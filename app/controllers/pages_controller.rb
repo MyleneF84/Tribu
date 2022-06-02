@@ -3,4 +3,8 @@ class PagesController < ApplicationController
   def home
     @last_events = Event.all.last(3)
   end
+
+  def dashboard
+    @bookings = current_user.bookings
+  end
 end
