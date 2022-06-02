@@ -36,11 +36,12 @@ puts 'Creating categories'
 distance = 40 # kilometres
 location = "france,ile-de-france,seine-et-marne,moret-loing-et-orvanne"
 date = Date.today.strftime("%Y_%m_%d") # aka a partir d'aujourd'hui
-categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"]
+categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ]
 
 # SCRAPPING
 categories.each do |category|
   url = "https://www.eterritoire.fr/evenements/#{location}/_datedebut-#{date},#{category},xrac-#{distance}"
+  p url
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML(html_file)
   html_doc.search('[itemtype="https://schema.org/Event"]').each do |element|
