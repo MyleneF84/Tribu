@@ -2,12 +2,12 @@
 
 <%= link_to "Back to all events", events_path  %>
 
-<h6><%= @event.user.first_name %> vous propose :</h6>
+<%# <h6><%= @event.user.first_name vous propose :</h6> %> 
 <h1><%= @event.name %> !</h1>
 
-<% if @event.photo.present? %>
-  <%= cl_image_tag @event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
-<% end %>
+<%# <% if @event.photo.present? %> 
+  <%# <%= cl_image_tag @event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%> %>
+<%# <% end %>
 
 
 <%= @event.description %>
@@ -30,3 +30,4 @@
 
 
 <%= button_to "Destroy this event", @event, method: :delete if policy(@event).destroy? %>
+<% end %>
