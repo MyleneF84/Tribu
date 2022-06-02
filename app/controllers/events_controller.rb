@@ -2,7 +2,24 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @events = policy_scope(Event)
+    # search sur la destination
+    if params[:query].present?
+      if params[:query][:city].present?
+        @events = policy_scope(Event).where("address ILIKE ?", "%#{params[:query][:city]}%")
+      else
+        @events = policy_scope(Event)
+      end
+    end
+    # search sur les dates
+    if params[:date].present?
+      @events = policy_scope(Event).where("start_at <= ?", "%#{params[:date][:start_date]}%").where("end_at >= ?", "%#{params[:date][:start_date]}%") ||
+                policy_scope(Event).where("start_at <= ?", "%#{params[:date][:end_date]}%").where("end_at >= ?", "%#{params[:date][:end_date]}%") ||
+                policy_scope(Event).where("start_at <= ?", "%#{params[:date][:end_date]}%").where("end_at <= ?", "%#{params[:date][:end_date]}%") ||
+                policy_scope(Event).where("start_at <= ?", "%#{params[:date][:start_date]}%").where("end_at >= ?", "%#{params[:date][:end_date]}%")
+      @events = @events.uniq
+    else
+      @events = policy_scope(Event)
+    end
   end
 
   def show

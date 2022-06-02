@@ -1,7 +1,14 @@
-<%#if policy(@booking).new? %>
+<%if policy(@booking).new? %>
 
 <%= simple_form_for([@event, @booking]) do |f| %>
 <%= f.input :reviews %>
 <%= f.submit class: 'btn-signup'%>
+
+<%# if private %>
+<%# else %>
+  
+<%#= f.input :category, collection: ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ] %>
+<%# end %>
+
 <% end %>
 <% end %>
