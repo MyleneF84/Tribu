@@ -37,6 +37,8 @@ distance = 40 # kilometres
 location = "france,ile-de-france,seine-et-marne,moret-loing-et-orvanne"
 date = Date.today.strftime("%Y_%m_%d") # aka a partir d'aujourd'hui
 categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ]
+# categories_public = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ]
+# categories_private = ["sport", "etc." ]
 
 # SCRAPPING
 categories.each do |category|
