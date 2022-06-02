@@ -1,0 +1,37 @@
+
+    <div class="col-6">
+      <div class="card-product-infos">
+          <div class="card-product-infos-top d-flex justify-content-between">
+            <div>
+            <img src="https://w7.pngwing.com/pngs/176/67/png-transparent-person-logo-people-travel-text-rectangle-logo.png">
+            </div>
+            <div>
+              <h4><%= @event.user.first_name %></h4>
+              <h1><%= @event.name %></h1>
+              <h6>Commune</h6>
+            </div>
+            <h4 id=tag-price><%= @event.price %> €</h4>
+          </div>
+
+          <% if @event.photo.present? %>
+            <%= cl_image_tag @event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+          <% end %>
+
+            <div>
+            <%= @event.description %>
+            </div>
+
+
+        <div class="card-product-infos-bottom d-flex justify-content-between">
+          <div>
+            <h5><%= @event.address %></h5>
+            <h6>Tel : <%= @event.phone_number %></h6>
+            <p>Nombre de participants : <%= @event.number_of_participants %></p>
+          </div>
+          <div>
+            <p>Du <%= @event.start_at %></p>
+            <p>au <%= @event.end_at %></p>
+          </div>
+        </div>
+      </div>
+    </div>

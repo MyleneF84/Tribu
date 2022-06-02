@@ -1,34 +1,10 @@
-//////Show d'un Event/////
-
-<%= link_to "Back to all events", events_path  %>
-
-<%# <h6><%= @event.user.first_name %> 
-<%# vous propose : </h6> %> 
-<h1><%= @event.name %> !</h1>
-
-<% if @event.photo.present? %> 
-  <%= cl_image_tag @event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%> 
- <% end %>
+<div class="container">
+  <div class="row justify-content-center mt-3">
+    <%= render "shared/card_product_infos", event: @event %>
+    <%= render "shared/card_product_map" %>
+  </div>
+</div>
 
 
-<%= @event.description %>
-  <ul>
-    <li>Date de debut : <%= @event.start_at %></li>
-  <li>Date de fin : <%= @event.end_at %></li>
-  <li>Adresse : <%= @event.address %></li>
-  <li>Tel : <%= @event.phone_number %></li>
-  <li>Prix : <%= @event.price %> €</li>
-  <li>Nombre de participants : <%= @event.number_of_participants %></li>
-</ul>
 
 
-<%= link_to "Reservez cette activité", new_event_booking_path(@event) %>
-
-
-<% if policy(@event).edit? %>
-  <%= link_to "Edit this event", edit_event_path(@event) %> 
-<% end %>
-
-
-<%# <%= button_to "Destroy this event", @event, method: :delete if policy(@event).destroy? %>
-<%# <% end %> 
