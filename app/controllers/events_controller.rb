@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.category = params[:event][:category].reject(&:empty?)
     @event.user = current_user
     authorize @event
     if @event.save
@@ -63,6 +64,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :address, :phone_number,
-      :price, :start_at, :end_at, :number_of_participants, :photo)
+      :price, :start_at, :end_at, :number_of_participants, :photo, :category)
   end
 end

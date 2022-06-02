@@ -28,6 +28,10 @@
         <div class="card-product-infos-bottom d-flex justify-content-between">
           <div>
             <h5><%= @event.address %></h5>
+            <% @event.category.each do |category| %>
+              <p><%= category %></p>
+            <% end %>
+
             <h6>Tel : <%= @event.phone_number %></h6>
             <p>Nombre de participants : <%= @event.number_of_participants %></p>
           </div>
