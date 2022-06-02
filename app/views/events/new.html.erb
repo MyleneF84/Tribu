@@ -9,6 +9,13 @@ Your are connected as : <%= current_user.first_name %>
 <%= f.input :address %>
 <%= f.input :phone_number%>
 <%= f.input :price %>
+<%= f.input :category,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: Snippet::LIST %>
 <%= f.input :start_at %>
 <%= f.input :end_at %>
 <%= f.input :number_of_participants%>
@@ -16,3 +23,4 @@ Your are connected as : <%= current_user.first_name %>
 <% end %>
 
 <%#= link_to "Back to Home", root_path %>
+
