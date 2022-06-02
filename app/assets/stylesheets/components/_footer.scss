@@ -1,5 +1,5 @@
 .footer {
-  background: #FCFAEE;
+  background: $creme;
   position: relative;
   display: flex;
   align-items: center;
@@ -33,5 +33,5 @@
 }
 .footer-links a:hover {
   opacity: 1;
-  color:  $saumon;
+  color:  $saumon
 }
