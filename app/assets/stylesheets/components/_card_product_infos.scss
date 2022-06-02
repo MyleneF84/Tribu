@@ -1,0 +1,28 @@
+.card-product-infos {
+  border : 1px;
+  border-color: black;
+  border-radius: 4px;
+  background-color: grey;
+  padding: 10px;
+  height: 600px;
+  width: 400px;
+}
+
+.card-product-infos-top {
+  display: flex;
+  text-align: center;
+  border-bottom: 2px solid #FFEC43;
+}
+
+.card-product-infos-top img {
+  align-items: center;
+}
+
+.card-product-infos-top img {
+  width: 30px;
+  height: 30px;
+}
+
+.card-product-infos-bottom {
+  color: #FF5E5B
+}
