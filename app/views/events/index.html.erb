@@ -1,25 +1,23 @@
-<h1>Liste des événements - index</h1>
 
 <div class="container">
   <div class="row d-flex justify-content-center">
     <div class="col-md-10">
-      <div class="card-form p-4 form-query">
-        <h3 class="heading mt-3 text-center">Trouvez le prochain évènement local près de vous </h3>
+      <div class="card-form mt-4 mb-4 p-4 form-query">
+        <h3 class="heading m-3 text-center">Trouvez le prochain évènement local près de vous </h3>
         <div class="d-flex justify-content-center px-5">
-          <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'bg-white d-flex p-2 query rounded-pill w-50 justify-content-between' } do |f| %>
+        <%# raise %>
+          <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'bg-white d-flex p-2 query rounded-pill justify-content-between' } do |f| %>
             <%= f.input :city, placeholder: 'ville, commune, code postal...', label: false,
-                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100' },
+                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100', value: (params[:query][:city] if params[:query])},
                         wrapper_html: { class: 'mb-0-important w-100' } %>
-            <button class="px-4 py-2 text-white rounded-pill bg-saumon border-0"><i class="fa-solid fa-magnifying-glass"></i></button>
-          <% end %>
-          <%= simple_form_for :date, url: events_path, method: :get, html: { class: 'bg-white d-flex p-2 query rounded-pill w-75 justify-content-between' } do |f| %>
             <%= f.input :start_date, as: :date, html5: true, placeholder: '01-01-2022', label: false,
-                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100' },
+                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100', value: (params[:query][:start_date] if params[:query])},
                         wrapper_html: { class: 'mb-0-important w-100' } %>
             <%= f.input :end_date,  as: :date, html5: true, placeholder: '01-02-2022', label: false,
-                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100' },
+                        input_html: { class: 'bg-white border-0 form-control mx-2 w-100', value: (params[:query][:end_date] if params[:query])},
                         wrapper_html: { class: 'mb-0-important w-100' } %>
-            <button class="px-4 py-2 text-white rounded-pill bg-purple border-0"><i class="fa-solid fa-angles-right"></i></button>
+            <%# <%= f.input :categories, as: :check_boxes %> %
+            <button class="px-4 py-2 text-white rounded-pill bg-saumon border-0"><i class="fa-solid fa-magnifying-glass"></i></button>
           <% end %>
         </div>
       </div>
@@ -27,14 +25,14 @@
   </div>
 </div>
 
-<div class="d-flex align-items-center justify-content-center flex-wrap">
+<div class="d-flex align-items-center flex-wrap justify-content-center">
   <% @events.each do |event|%>
-    <div class="p-3 px-3 w-25 border rounded">
+    <div class="p-3 m-3 w-25 border rounded">
 
-    Titre : <%= link_to event.name, event_path(event) %>
-    Description : <%= event.description %>
-    Description : <%= event.start_at %>
-    Description : <%= event.end_at %>
+    <p><%= link_to event.name, event_path(event) %><br>
+    <%= event.description %></p>
+    <p>Du <%= event.start_at %>
+    au <%= event.end_at %></p>
     <%# Organisée par : <%= event.user.first_name %>
     </div>
   <% end %>

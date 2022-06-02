@@ -1,12 +1,11 @@
 <%# dans home %>
-<div class="container mt-5 mb-3">
-  <div class="row col-md-4">
+<div class="container mt-5 mb-6">
+  <div class="row col-sm-12">
     <h3> Evenements locaux à la carte </h2>
-    <div class="cards p-3 mb-2 align-items-center">
+    <div class="cards p-3 px-3 mb-2 align-items-center">
       <% @last_events.each do |event| %>
-
 <%# #######################@ %>
-      <div class="card d-flex justify-content-between" style="border: 1px solid grey rounded;">
+      <div class="card d-flex flex-wrap justify-content-center" style="border: 1px solid grey rounded;">
         <%= link_to event_path(event), class: "clickable-cards" do %>
               <div class="img-container">
                 <div class="img-inner">
@@ -16,8 +15,8 @@
               </div>
               <div class="text-container">
                 <div class="d-flex flex-column justify-content-around align-items-center block-text-card">
-                  <h3> <%= event.address %></h3>
-                  <h5> <%= event.name %></h5>
+                  <h3> <%= event.name %></h3>
+                  <h5> <%= event.address %></h5>
                     <p class="line-clamp description-text"><%= event.description %></p>
                 </div>
               </div>
