@@ -3,11 +3,11 @@
   <div class="card-product-infos shadow-sm p-3 mb-5 bg-white rounded d-lg-grid ">
       <div class="card-product-infos-top d-flex justify-content-between ">
         <div>
-        <% @public = ["balades-visites", "nature-environnement","sport", "entraide", "arts", "plantes-potager"] %>
-        <% if @event.category.include?(@public) %>
-          <img src="https://w7.pngwing.com/pngs/176/67/png-transparent-person-logo-people-travel-text-rectangle-logo.png">
+        <% @private = ["balades-visites", "nature-environnement","sport", "entraide", "arts", "plantes-potager"] %>
+        <% if @event.user %>
+          <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250533/noun-lock-821927_xdlair.png">
           <% else %>
-          <h2></h2>
+           
           <% end %>
           <%#j'en suis ici = je cherche à faire la seed (qui a buggé avec la catégory car attend un array pas un string pour ajouter les catégories à la seed en dur et à pouvoir faire marcher en ruby le fait que si un certains nombre d'éléments sont présents dans l'array alors ca affiche la catégorie afin d'y associer une image avec un symbole privé ou public %>
         </div>
@@ -15,7 +15,7 @@
             <% if @event.user.present? %>
             <h4 class="fs-6"><%= @event.user.first_name%> vous propose :</h4>
             <% else %>
-            <h4>placeholder pour city</h4>
+            <h4 class="fs-6"><%= @event.address %> vous propose :</h4>
             <% end %>
             <h1><%= @event.name %></h1>
         </div>
@@ -39,7 +39,7 @@
         <div>
             <em><h5 class="card-product-infos-address fs-6 "><%= @event.address %></h5></em>
             <% @event.category.each do |category| %>
-              <p><%= category %></p>
+              <p class="badge tag-category rounded-pill mb-auto"><%= category %></p>
             <% end %>
           <h6>  <strong>Tel : </strong><%= @event.phone_number %></h6>
           <% if @event.number_of_participants.present? %>
