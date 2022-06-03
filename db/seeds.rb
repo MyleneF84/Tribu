@@ -65,7 +65,7 @@ categories.each do |category|
     )
     event1.photo.attach(io: URI.open(img), filename: "image")
     event1.save
-    puts "Event created 🥳"
+    puts "#{address} 🥳"
   end
 end
 
