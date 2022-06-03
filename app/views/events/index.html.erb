@@ -33,6 +33,7 @@
 <div class="d-flex align-items-center flex-wrap justify-content-center">
   <% @events.each do |event|%>
     <div class="p-3 m-3 w-25 border rounded">
+    <p><%= event.category %></p>
 
     <p><%= link_to event.name, event_path(event) %><br>
     <%= event.description %></p>
@@ -43,4 +44,8 @@
   <% end %>
 </div>
 
-<%= link_to "New event", new_event_path if policy(Event).new? %>
+<div class="text-center">
+<div class="boutton px-3 py-2 text-white rounded-pill bg-purple border-0 text-decoration-none text-center">
+<%= link_to "Nouvel évènement", new_event_path if policy(Event).new? %>
+</div>
+</div>
