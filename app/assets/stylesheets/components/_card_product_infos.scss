@@ -1,8 +1,7 @@
 .card-product-infos {
   border : 1px;
-  border-color: black;
-  border-radius: 4px;
-  background-color: grey;
+  border-radius: 4px !important;
+  background-color: white ;
   padding: 10px;
   height: 600px;
 }
@@ -10,7 +9,7 @@
 .card-product-infos-top {
   display: flex;
   text-align: center;
-  border-bottom: 2px solid $jaune_pale
+  border-bottom: 2px solid $yellow
 }
 
 .card-product-infos-top img {
@@ -23,5 +22,9 @@
 }
 
 .card-product-infos-bottom {
-  color: $saumon
+  color: $gris_fonce
+}
+
+.card-product-infos-address {
+  color: $prune;
 }
