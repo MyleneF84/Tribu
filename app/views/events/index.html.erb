@@ -33,7 +33,11 @@
 <div class="d-flex align-items-center flex-wrap justify-content-center">
   <% @events.each do |event|%>
     <div class="p-3 m-3 w-25 border rounded">
-
+        <div class="photo mb-3 mt-5 text-center rounded mx-auto d-block" >
+            <% if event.photo.present? %>
+            <%= cl_image_tag event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+                <% end %>
+          </div>
     <p><%= link_to event.name, event_path(event) %><br>
     <%= event.description %></p>
     <p>Du <%= event.start_at %>

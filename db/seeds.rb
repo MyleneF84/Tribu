@@ -36,6 +36,7 @@ distance = 40 # kilometres
 location = "france,ile-de-france,seine-et-marne,moret-loing-et-orvanne"
 date = Date.today.strftime("%Y_%m_%d") # aka a partir d'aujourd'hui
 categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ]
+categories_private = ["balades-visites", "nature-environnement", "sport", "entraide", "arts", "plantes-potager"]
 # categories_public = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ]
 # categories_private = ["sport", "etc." ]
 
@@ -70,11 +71,11 @@ end
 
 puts 'Creating Events...'
 event1 = Event.create!(
-  name: "Foire aux Dindons",
-  description: "Venez découvrir nos beaux Dindons de la région. Bien nourris, bien dodus, ils gloussent du matin au soir. Mais ne vous méprenez pas, leur timbre est doux et délicat! Ils régaleront aussi bien vos yeux que vos papilles !",
+  name: "Moment à la ferme",
+  description: "Partagez un moment du quotidien dans ma ferme ! Au programme : nourrir les animaux de la basse-cour, remplir les abreuvoirs, et passez un joli moment avec les agneaux qui viennent de naitre. Les enfants sont évidemment les bienvenus",
   address: "36 route du Luberon, 91320 WISSOUS",
-  price: "10",
-  #category: "nature-environnement",
+  price: "15",
+  category: [categories_private[1], categories_private[3]],
   start_at: Date.today,
   end_at: Date.tomorrow,
   phone_number: "0148658596",
@@ -84,11 +85,11 @@ event1.photo.attach(io: URI.open("https://res.cloudinary.com/dvtuelr2w/image/upl
 event1.save
 
 event2 = Event.create!(
-  name: "Marché aux fleurs",
-  description: "Le lieu aux milles odeurs et couleurs. L'endroit idéal pour flâner seul ou à deux, pour offrir ou se faire plaisir !",
+  name: "Tailler le jardin",
+  description: "Mon jardin est immense et possède plein de plantes ! Pendant cette journée, vous pourrez m'aider à m'occuper des fleurs, mais aussi du potager, et vous servir en bouture !",
   address: "4 rue Jean-Jaurès, 94240 l'Haÿ-les-Roses",
-  price: "5",
-  #category: "plantes-potager",
+  price: "10",
+  category: [categories_private[5]],
   start_at: Date.yesterday,
   end_at: Date.today,
   phone_number: "0175496352",
@@ -99,10 +100,10 @@ event2.save
 
 event3 = Event.create!(
   name: "Balade à Vélo",
-  description: "Laissez vous guider par notre Cécé nationale à travers la ville. Aucun recoin n'a de secret pour elle. Elle vous fera découvrir des petits recoins au charme fou. Elle s'adapte à votre rythme, pour une balade tranquille ou plus sportive.",
+  description: "Je vous propose une balade à velo afin de vous faire découvrir différents endroit de la région ! Moment convivial garanti :)",
   address: "4 allée mansart, 94260 FRESNES",
-  price: "20",
-  #category: "sport",
+  price: "5",
+  category: [categories_private[0], categories_private[2]],
   start_at: Date.today,
   end_at: Date.tomorrow,
   phone_number: "0699584256",
