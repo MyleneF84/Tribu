@@ -64,16 +64,17 @@ categories.each do |category|
     )
     event1.photo.attach(io: URI.open(img), filename: "image")
     event1.save
-    puts "Event #{img} created 🥳ra"
+    puts "Event created 🥳"
   end
 end
 
 puts 'Creating Events...'
 event1 = Event.create!(
-  name: "Foire au Dindon",
+  name: "Foire aux Dindons",
   description: "Venez découvrir nos beaux Dindons de la région. Bien nourris, bien dodus, ils gloussent du matin au soir. Mais ne vous méprenez pas, leur timbre est doux et délicat! Ils régaleront aussi bien vos yeux que vos papilles !",
   address: "36 route du Luberon, 91320 WISSOUS",
   price: "10",
+  #category: "nature-environnement",
   start_at: Date.today,
   end_at: Date.tomorrow,
   phone_number: "0148658596",
@@ -87,6 +88,7 @@ event2 = Event.create!(
   description: "Le lieu aux milles odeurs et couleurs. L'endroit idéal pour flâner seul ou à deux, pour offrir ou se faire plaisir !",
   address: "4 rue Jean-Jaurès, 94240 l'Haÿ-les-Roses",
   price: "5",
+  #category: "plantes-potager",
   start_at: Date.yesterday,
   end_at: Date.today,
   phone_number: "0175496352",
@@ -100,6 +102,7 @@ event3 = Event.create!(
   description: "Laissez vous guider par notre Cécé nationale à travers la ville. Aucun recoin n'a de secret pour elle. Elle vous fera découvrir des petits recoins au charme fou. Elle s'adapte à votre rythme, pour une balade tranquille ou plus sportive.",
   address: "4 allée mansart, 94260 FRESNES",
   price: "20",
+  #category: "sport",
   start_at: Date.today,
   end_at: Date.tomorrow,
   phone_number: "0699584256",
@@ -115,7 +118,7 @@ Booking.create!(
   event_id: event2.id,
   rating: "4",
   status: "accepted",
-  reviews: "45"
+  reviews: "C'est génial !"
 )
 
 Booking.create!(
@@ -123,7 +126,7 @@ Booking.create!(
   event_id: event3.id,
   rating: "5",
   status: "pending",
-  reviews: "16"
+  reviews: "Quel beau moment !"
 )
 
 Booking.create!(
@@ -131,6 +134,6 @@ Booking.create!(
   event_id: event1.id,
   rating: "3",
   status: "denied",
-  reviews: "24"
+  reviews: "Nous reviendrons, c'est certain :)"
 )
 puts 'Finished!'

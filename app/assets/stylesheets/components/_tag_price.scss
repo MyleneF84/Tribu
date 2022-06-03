@@ -1,8 +1,12 @@
 #tag-price {
-  background-color: #FF5E5B;
+  background-color: $saumon;
   text-align: center;
   color: white;
   width: 40px;
   height: 40px;
   border-radius: 20px;
+}
+
+.tag-price {
+  background-color: $lavande;
 }
