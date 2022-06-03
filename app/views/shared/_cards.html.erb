@@ -14,6 +14,11 @@
                 </div>
               </div>
               <div class="text-container">
+                <div class="photo mb-3 mt-5 text-center rounded mx-auto d-block" >
+                  <% if event.photo.present? %>
+                  <%= cl_image_tag event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+                    <% end %>
+                </div>
                 <div class="d-flex flex-column justify-content-around align-items-center block-text-card">
                   <h3> <%= event.name %></h3>
                   <h5> <%= event.address %></h5>
