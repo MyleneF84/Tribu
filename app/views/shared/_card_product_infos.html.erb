@@ -7,7 +7,7 @@
         <% if @event.user %>
           <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250533/noun-lock-821927_xdlair.png">
           <% else %>
-          <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250416/noun-public-4612037_oix7hj.png">
+           
           <% end %>
           <%#j'en suis ici = je cherche à faire la seed (qui a buggé avec la catégory car attend un array pas un string pour ajouter les catégories à la seed en dur et à pouvoir faire marcher en ruby le fait que si un certains nombre d'éléments sont présents dans l'array alors ca affiche la catégorie afin d'y associer une image avec un symbole privé ou public %>
         </div>
@@ -20,7 +20,7 @@
             <h1><%= @event.name %></h1>
         </div>
         <% if @event.price.eql? 0 %>
-          <%# <h4 id=tag-price><%= @event.price %> 
+          <%# <h4 id=tag-price><%= @event.price %>
           <span class="badge tag-price rounded-pill mb-auto ">gratuit</span>
           <% else %>
           <span class="badge tag-price rounded-pill mb-auto "><%= @event.price %>€</span>
@@ -53,4 +53,3 @@
     </div>
   </div>
 </div>
-
