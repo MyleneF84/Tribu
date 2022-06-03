@@ -1,32 +1,20 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
-    # include PgSearch::Model
-    # pg_search_scope :search_by_events_and_category,
-    #   against: [ :event, :category ],
-    #   using: {
-    #     tsearch: { prefix: true }
-    #   }
-
-      #   include PgSearch::Model
-      #   multisearchable against: [:events, :category]
-      # end
-
-
 
   def index
     # raise
     # search sur la destination et la date
     @events = policy_scope(Event)
-    @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city)
-    if params.dig(:query, :start_date).present?
+    @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
+    if params.dig(:query, :start_date).present? && params.dig(:query, :start_date) != ""
       @events = @events.where("start_at >= ?", params[:query][:start_date]).where("start_at <= ?", params[:query][:end_date]).distinct.or(
         @events.where("end_at >= ?", params[:query][:start_date]).where("end_at <= ?", params[:query][:end_date]).distinct
       ).or(
         @events.where("start_at <= ?", params[:query][:start_date]).where("end_at >= ?", params[:query][:end_date]).distinct
       )
     end
-    if params.dig(:query, :categories).present?
+    if params.dig(:query, :categories).present? && params.dig(:query, :categories) != [""]
       @events = @events.select { |event| !(event.category & params.dig(:query, :categories).reject(&:empty?)).empty? }
     end
   end
