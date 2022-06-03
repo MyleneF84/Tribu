@@ -20,14 +20,14 @@
             <h1><%= @event.name %></h1>
         </div>
         <% if @event.price.eql? 0 %>
-          <%# <h4 id=tag-price><%= @event.price %> 
+          <%# <h4 id=tag-price><%= @event.price %>
           <span class="badge tag-price rounded-pill mb-auto ">gratuit</span>
           <% else %>
           <span class="badge tag-price rounded-pill mb-auto "><%= @event.price %>€</span>
           <% end %>
 
         </div>
-      <div class="photo mb-3 mt-5 text-center rounded mx-auto d-block" >
+      <div class="photo mb-3 mt-3 text-center rounded mx-auto d-block" >
         <% if @event.photo.present? %>
           <%= cl_image_tag @event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
           <% end %>
@@ -53,4 +53,3 @@
     </div>
   </div>
 </div>
-
