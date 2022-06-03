@@ -7,9 +7,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_param)
     @event = Event.find(params[:event_id])
     authorize @event
+    @booking = Booking.new
     @booking.event = @event
     @booking.user = current_user
     if @booking.save
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
       redirect_to event_path(@event)
     else
       flash[:alert] = "Error, verify your information"
-      render :new
+      render 'events/show', status: :unprocessable_entity
     end
   end
 
@@ -32,6 +32,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_param
-    params.require(:booking).permit(:rating, :status, :reviews, :event_id, :user_id)
+    params.require(:booking).permit(:rating, :status, :reviews)
   end
 end
