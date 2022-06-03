@@ -7,7 +7,9 @@
         <div class="d-flex justify-content-center px-5">
           <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'd-flex flex-wrap p-2 query justify-content-between' } do |f| %>
             <div class="checkbox tag-selector justify-content-center w-100 d-flex space-between mr-1">
-              <%= f.input :categories, as: :check_boxes, :collection => ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"] %>
+              <%= f.input :categories,
+                as: :check_boxes,
+                collection: ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"] %>
             </div>
             <div class="w-50 pe-4">
               <%= f.input :city, placeholder: 'ville, commune, code postal...', label: false,
@@ -30,6 +32,8 @@
   </div>
 </div>
 
+<%#= params[:query][:categories] if params[:query] && params[:query][:categories] %>
+
 <div class="d-flex align-items-center flex-wrap justify-content-center">
   <% @events.each do |event|%>
     <div class="p-3 m-3 w-25 border rounded shadow-sm">
@@ -45,14 +49,12 @@
     au <%= event.end_at %></p>
 
     <% event.category.each do |category| %>
-    <span class="badge tag-price rounded-pill mb-auto "><p><%= category %></p></span>
+    <span class="badge tag-price rounded-pill mb-auto end-100"><p><%= category %></p></span>
     <% end %>
     </div>
    <% end %>
 </div>
 
 <div class="text-center">
-<div class="boutton px-3 py-2 text-white rounded-pill bg-purple border-0 text-decoration-none text-center">
-<%= link_to "Nouvel évènement", new_event_path if policy(Event).new? %>
-</div>
+  <%= link_to "Nouvel évènement", new_event_path, class: 'boutton px-3 py-2 text-white rounded-pill bg-purple border-0 text-decoration-none justify-content-center text-center' if policy(Event).new? %>
 </div>
