@@ -26,8 +26,8 @@
     <%= f.input :photo, as: :file %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :address %>, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw"]}}
+    <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
     <%= f.input :phone_number%>
     <%= f.input :price %>
     <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>

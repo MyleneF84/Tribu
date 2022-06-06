@@ -3,9 +3,7 @@ class EventsController < ApplicationController
 
 
   def index
-    # raise
     # search sur la destination et la date
-    @addresses = Event.order(:address).pluck(:address).uniq
     @events = policy_scope(Event)
     @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
     if params.dig(:query, :start_date).present? && params.dig(:query, :start_date) != ""
@@ -22,6 +20,8 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
+        color: $lavande,
+        draggable: true,
         info_window: render_to_string(partial: "info_window", locals: {event: event}),
         image_url: helpers.asset_url("navire-viking.png")
       }
