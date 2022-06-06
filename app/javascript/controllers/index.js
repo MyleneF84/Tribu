@@ -4,8 +4,17 @@
 
 import { application } from "./application"
 
+import AddressAutocompleteController from "./address_autocomplete_controller.js"
+application.register("address-autocomplete", AddressAutocompleteController)
+
+import FormAutocompleteController from "./form_autocomplete_controller.js"
+application.register("form-autocomplete", FormAutocompleteController)
+
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import MapController from "./map_controller.js"
+application.register("map", MapController)
