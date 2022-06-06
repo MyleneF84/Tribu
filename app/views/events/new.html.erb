@@ -5,7 +5,8 @@ Your are connected as : <%= current_user.first_name %>
     <%= f.input :photo, as: :file %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :address %>
+    <%= f.input :address %>, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw"]}}
     <%= f.input :phone_number%>
     <%= f.input :price %>
     <%= f.input :category, collection: Event::LIST, as: :check_boxes %>
@@ -15,4 +16,3 @@ Your are connected as : <%= current_user.first_name %>
     <%= f.submit "#{ @event.persisted? ? 'Update' : 'Create' } my event", class: 'btn btn-primary' %>
   <% end %>
 <%#= link_to "Back to Home", root_path %>
-
