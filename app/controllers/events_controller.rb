@@ -23,7 +23,7 @@ class EventsController < ApplicationController
         color: $lavande,
         draggable: true,
         info_window: render_to_string(partial: "info_window", locals: {event: event}),
-        image_url: helpers.asset_url("navire-viking.png")
+        image_url: helpers.asset_url("navire-viking-bleu.png")
       }
     end
   end
