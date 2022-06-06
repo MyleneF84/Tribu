@@ -1,6 +1,6 @@
 .card-product-infos {
   border : 1px;
-  border-radius: 4px !important;
+  border-radius: 10px !important;
   background-color: white ;
   padding: 10px;
   height: 600px;
@@ -9,7 +9,7 @@
 .card-product-infos-top {
   display: flex;
   text-align: center;
-  border-bottom: 2px solid $yellow
+  color : $lavande;
 }
 
 .card-product-infos-top img {
@@ -22,9 +22,16 @@
 }
 
 .card-product-infos-bottom {
-  color: $gris_fonce
+  color: $gris_fonce;
+  background-color: $saumon;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .card-product-infos-address {
   color: $prune;
+}
+
+.show-container {
+  background-color: $lavande;
 }

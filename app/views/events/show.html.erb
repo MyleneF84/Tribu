@@ -1,10 +1,11 @@
-<%= link_to "Retourner sur les activités", events_path, class: "px-3 py-2 text-white rounded-pill bg-purple border-0 text-decoration-none text-center" %>
-<div class="container">
-  <div class="row justify-content-center mt-3">
-    <%= render "shared/card_product_infos", event: @event %>
-    <%= render "shared/card_product_map" %>
+<div class = "show-container pb-5">
+  <%= link_to "Retour à la recherche", events_path, class: "bg-purple border-0 px-3 py-2 text-center text-decoration-none text-white" %>
+  <div class="container">
+    <div class="row justify-content-center mt-3 align-items-stretch">
+      <%= render "shared/card_product_infos", event: @event %>
+      <%= render "shared/card_product_map" %>
+    </div>
   </div>
-</div>
 </div>
 <% unless current_user&.id == @event.user_id %>
   <div class="mt-3 w-100">
@@ -12,14 +13,16 @@
   </div>
 <% end %>
 
-<% if policy(@event).edit? %>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-<% end %>
+  <% if policy(@event).edit? %>
+    <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <% end %>
 
-<%#= button_to "Destroy this event", @event, data: {turbo_method: :delete} if policy(@event).destroy? %>
-<%= button_to "Delete my event", @event, method: :delete if policy(@event).destroy? %>
+  <%#= button_to "Destroy this event", @event, data: {turbo_method: :delete} if policy(@event).destroy? %>
+  <%= button_to "Delete my event", @event, method: :delete if policy(@event).destroy? %>
 
 
 
-<%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post} %>
-<%= link_to 'Dashboard', dashboard_path(current_user) %>    
+  <%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post} %>
+  <%= link_to 'Dashboard', dashboard_path(current_user) %>    
+</div>
+
