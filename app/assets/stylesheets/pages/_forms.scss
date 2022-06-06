@@ -1,0 +1,25 @@
+.form-actions {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  text-align: center;
+}
+
+.login-title {
+  display: flex;
+  min-height: 10vh;
+  justify-content: space-between;
+  #pencil {
+    justify-content: flex-end;
+  }
+}
+
+.form {
+  background-color: $jaune_pale;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 27px;
+  height: 767px;
+  margin-top: 60px;
+}

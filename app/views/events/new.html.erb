@@ -1,7 +1,10 @@
-<h1>Créez votre evenement</h1>
+<div class="container">
 
-Your are connected as : <%= current_user.first_name %>
-  <%= simple_form_for(@event) do |f| %>
+<div class="form-event m-5 p-5 shadow-lg">
+<h1 class="mb-5 text-center">Créez votre evenement</h1>
+
+<h6 class= "text-end">Your are connected as : <%= current_user.first_name %></h6>
+  <%= simple_form_for(@event, html: {data: {controller: "flatpickr"}}) do |f| %>
     <%= f.input :photo, as: :file %>
     <%= f.input :name %>
     <%= f.input :description %>
@@ -9,10 +12,15 @@ Your are connected as : <%= current_user.first_name %>
   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw"]}}
     <%= f.input :phone_number%>
     <%= f.input :price %>
-    <%= f.input :category, collection: Event::LIST, as: :check_boxes %>
-    <%= f.input :start_at %>
-    <%= f.input :end_at %>
+    <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+    <%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %>
+    <%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %>
     <%= f.input :number_of_participants%>
-    <%= f.submit "#{ @event.persisted? ? 'Update' : 'Create' } my event", class: 'btn btn-primary' %>
+    <div class="text-center mt-5"><%= f.submit "#{ @event.persisted? ? 'Update' : 'Create' } my event", class: 'btn bg-purple' %></div>
   <% end %>
 <%#= link_to "Back to Home", root_path %>
+=======
+
+</div>
+
+</div>
