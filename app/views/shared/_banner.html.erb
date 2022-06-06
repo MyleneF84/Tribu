@@ -12,9 +12,9 @@
       <div class="card-form p-4 form-query">
         <h3 class="heading mt-3 text-center">Trouvez le prochain évènement local près de vous </h3>
         <div class="d-flex justify-content-center px-5">
-            <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'bg-white d-flex p-2 query rounded-pill w-75 justify-content-between' } do |f| %>
+            <%= simple_form_for :query, url: events_path, method: :get, html: { data: {controller: "form-autocomplete", "form-autocomplete-addresses-value": @addresses.to_json}, class: 'bg-white d-flex p-2 query rounded-pill w-75 justify-content-between' } do |f| %>
               <%= f.input :city, placeholder: 'ville, commune, code postal...', label: false,
-                          input_html: { class: 'bg-white border-0 form-control mx-2 w-100' },
+                          input_html: { data: { "form-autocomplete-target": "searchInput"}, class: 'bg-white border-0 form-control mx-2 w-100' },
                           wrapper_html: { class: 'mb-0-important w-100' } %>
               <button class="px-4 py-2 text-white rounded-pill bg-purple border-0"><i class="fa-solid fa-angles-right"></i></button>
             <% end %>

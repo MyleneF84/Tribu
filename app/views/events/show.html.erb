@@ -21,4 +21,5 @@
 
 
 
-<%#= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post} %>
+<%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post} %>
+<%= link_to 'Dashboard', dashboard_path(current_user) %>    

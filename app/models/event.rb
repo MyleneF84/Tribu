@@ -13,4 +13,6 @@ class Event < ApplicationRecord
   validates :start_at, :end_at, presence: true
   has_one_attached :photo
   validates :price, presence: true
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

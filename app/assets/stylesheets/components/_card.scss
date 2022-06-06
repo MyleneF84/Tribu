@@ -8,12 +8,8 @@
 
 
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
   transition: 0.3s;
   display: flex;
-  padding: 0 5px 0 5px;
 }
 
 .block-text-card {
