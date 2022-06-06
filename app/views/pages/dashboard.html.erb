@@ -1,3 +1,54 @@
 <h1>Ceci est la page Dashboard</h1>
 
 
+<div class ="container">
+  <div class="card-created-evenement">
+    <% @created_events.each do |created_event| %>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="card-event d-flex">
+            <div class="photo">
+              <% if created_event.photo.present? %>
+                <%= cl_image_tag created_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= created_event.name %></h5>
+                <p class="card-text"><%= created_event.address %></p>
+                <p class="card-text"><small class="text-muted"> Du <%= created_event.start_at %> au <%= created_event.end_at %></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="card-participating-evenement">
+    <% @participating_events.each do |participating_event| %>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="card-event">
+            <div class="photo col-md-4">
+              <% if participating_event.photo.present? %>
+                <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= participating_event.name %></h5>
+                <p class="card-text"><%= participating_event.address %></p>
+                <p class="card-text"><small class="text-muted"><%= participating_event.price %><%= participating_event.start_at %><%= participating_event.end_at %><%= participating_event.category %></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+

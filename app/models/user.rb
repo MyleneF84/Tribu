@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings, dependent: :destroy
   has_many :events, dependent: :destroy
-  has_many :participating_events, through: :bookings, source: :events
+  has_many :participating_events, through: :bookings, source: :event
   validates :first_name, :last_name, uniqueness: true, presence: true
   validates :email, presence: true, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
