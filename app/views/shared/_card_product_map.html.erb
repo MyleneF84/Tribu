@@ -1,28 +1,22 @@
-    <div class="col-6">
-      <div class="align-content-between card-product-map d-flex flex-column p-3 mb-5 bg-white rounded d-lg-grid">
-          <div class="card-img flex-grow-1">
-            <img class= "flex-grow-1 w-100 pb-5" src="https://img-0.journaldunet.com/QCybYD5H0b3-Wuqjy9qNd-7MG8k=/1500x/smart/2b7b473c1ebe416ead81f3f6179a1d75/ccmcms-jdn/11436203.jpg" >
-          </div>
-          <div class="card-group mt-5">
-            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-              <div class="card-body">
-                  <h5 class="card-title"> <em>Severine</em></h5>
-                  <p class="card-text">Super experience, les enfants ont beaucoup aimé.</p>
-              </div>
-            </div>
-            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-              <div class="card-body">
-                  <h5 class="card-title"> <em>Severine</em></h5>
-                  <p class="card-text">Super experience, les enfants ont beaucoup aimé.</p>
-              </div>
-            </div>
-            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-              <div class="card-body">
-                  <h5 class="card-title"> <em>Severine</em></h5>
-                  <p class="card-text">Super experience, les enfants ont beaucoup aimé.</p>
-              </div>
-            </div>
-          </div>
+<div class="col-5">
+  <div class="bg-white h-100 card-product-map d-lg-grid shadow-sm w-auto d-flex flex-column">
+    <div class="card-img flex-grow-1">
+      <img class= "w-100" src="https://img-0.journaldunet.com/QCybYD5H0b3-Wuqjy9qNd-7MG8k=/1500x/smart/2b7b473c1ebe416ead81f3f6179a1d75/ccmcms-jdn/11436203.jpg" >
+    </div>
+    <div class="card-product-infos-bottom p-5">
+      <div class="date text-white">
+        <p>Du <%= @event.start_at.strftime("%d / %m") %></p>
+        <p>au <%= @event.end_at.strftime("%d / %m") %></p>
+      </div>
+      <div>
+        <em><h5 class="card-product-infos-address fs-6 d-flex pt-4"><%= @event.address %></h5></em>
+        <h6>  <strong>Tel : </strong><%= @event.phone_number %></h6>
+        <% if @event.number_of_participants.present? %>
+          <p>Nombre de participants : <%= @event.number_of_participants %></p>
+        <% end %>
       </div>
     </div>
+  </div>
+</div>
+
 
