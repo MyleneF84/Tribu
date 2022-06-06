@@ -5,10 +5,29 @@
 
 <h6 class= "text-end">Your are connected as : <%= current_user.first_name %></h6>
   <%= simple_form_for(@event, html: {data: {controller: "flatpickr"}}) do |f| %>
+      <%= f.input :photo, as: :file %>
+    <div class="input-1">
+      <div class="w-50 p-3"><%= f.input :name %></div>
+      <div class="w-50 p-3"><%= f.input :description %></div>
+    </div>
+    <div class="input-2">
+      <div class="w-50 p-3"><%= f.input :address %></div>
+      <div class="w-50 p-3"><%= f.input :phone_number%></div>
+    </div>
+    <div class="input-3">
+      <div class="w-50 p-3"><%= f.input :number_of_participants%></div>
+      <div class="w-50 p-3"><%= f.input :price %></div>
+    </div>
+      <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+    <div class="input-4">
+      <div class="w-50 p-3"><%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %></div>
+      <div class="w-50 p-3"><%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %></div>
+    </div>
     <%= f.input :photo, as: :file %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :address %>
+    <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
     <%= f.input :phone_number%>
     <%= f.input :price %>
     <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>

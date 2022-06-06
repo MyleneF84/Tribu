@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 
 
   def index
-    # raise
     # search sur la destination et la date
     @events = policy_scope(Event)
     @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
@@ -17,9 +16,17 @@ class EventsController < ApplicationController
     if params.dig(:query, :categories).present? && params.dig(:query, :categories) != [""]
       @events = @events.select { |event| !(event.category & params.dig(:query, :categories).reject(&:empty?)).empty? }
     end
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        color: $lavande,
+        draggable: true,
+        info_window: render_to_string(partial: "info_window", locals: {event: event}),
+        image_url: helpers.asset_url("navire-viking.png")
+      }
+    end
   end
-
-
 
 
   def show
