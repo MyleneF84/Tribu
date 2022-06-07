@@ -4,6 +4,7 @@
   background-size: cover;
   padding: 30px 0;
   height: 70vh;
+  margin-top: -50px;
 }
 
 .banner h1 {
@@ -11,7 +12,7 @@
 }
 
 .banner-search-card {
-  margin-top: -80px;
+  margin-top: -180px;
 }
 
 .text-banner {
@@ -26,11 +27,13 @@
 .banner-btn {
   display: flex;
   justify-content: center;
+  border-radius: 5rem;
 }
 
 .card-form {
   border-radius: 5px;
-  background: $yellow;
+  background: white;
+  border-color: gray;
 
 }
 .search {

@@ -14,9 +14,9 @@
   .mapboxgl-ctrl {
     background-color: white;
     margin-bottom: none !important;
-    box-shadow: none;
-    width: 50px;
-    border-radius: 50rem !important;
+    box-shadow: 10px;
+    width: 100px;
+    border-radius: 5rem !important;
   }
 
   // tout le style en rapport avec search home
@@ -33,10 +33,13 @@
 #address_index {
   .mapboxgl-ctrl {
     background-color: white;
-    width: 60px;
+    width: 100%;
     justify-content: space-between;
     display: flex;
-    border-radius: 50rem !important;
+    border-radius: 5rem !important;
+  }
+  .mapboxgl-ctrl-geocoder {
+    max-width: unset !important;
   }
 
   // tout le style en rapport avec search index
