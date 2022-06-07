@@ -34,6 +34,8 @@
   .mapboxgl-ctrl {
     background-color: white;
     width: 60px;
+    justify-content: space-between;
+    display: flex;
     border-radius: 50rem !important;
   }
 
