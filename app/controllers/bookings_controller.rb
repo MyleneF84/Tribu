@@ -11,9 +11,10 @@ class BookingsController < ApplicationController
     authorize @event
     @booking = Booking.new
     @booking.event = @event
+    @booking.status = "en-attente"
     @booking.user = current_user
     if @booking.save
-      flash[:alert] = "Booking succes !!"
+      flash[:notice] = "Booking succes !!"
       redirect_to dashboard_path(@event)
     else
       flash[:alert] = "Error, verify your information"
@@ -27,6 +28,32 @@ class BookingsController < ApplicationController
     authorize @booking
     @event = @booking.event
     authorize @event
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @event = @booking.event
+    @booking.update(booking_param)
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "accepted")
+    #@event = @booking.event
+    #authorize @event
+    flash[:notice] = "Demande acceptée!"
+    redirect_to dashboard_path(@booking.event)
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "declined")
+    #@event = @booking.event
+    #authorize @event
+    flash[:alert] = "Demande rejetée!"
+    redirect_to dashboard_path(@booking.event)
   end
 
   private

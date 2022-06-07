@@ -1,17 +1,17 @@
-<h1>Ceci est la page Dashboard</h1>
+<h1>Bienvenue sur ton dashboard <%= @current_user.first_name %></h1>
 
 <div class = "container d-flex justify-content-around">
   <div class = "tab-dashboard">
     <ul class="justify-content-around list-inline tabs-underlined nav nav-tabs">
       <li class="nav-item"> <%= link_to 'Hôte', dashboard_path(index: "host"), class:"nav-link #{ 'active' if (params[:index] == 'host' || params[:index] == nil)}" %>
-        
+
       </li>
       <li class="nav-item"> <%= link_to 'Participant', dashboard_path(index: "bookings"), class:"nav-link  #{ 'active' if params[:index] == 'bookings'}"  %>
-        
+
       </li>
       <li class="nav-item">
         <%= link_to 'Toutes mes activités', dashboard_path(index: "all"), class:"nav-link  #{ 'active' if params[:index] == 'all'}"  %>
-        
+
       </li>
     </ul>
   </div>
@@ -21,7 +21,7 @@
     <h1>MAP</h1>
   </div>
 </div>
-  <div> 
+  <div>
     <% if (params[:index] == "host" || params[:index] == nil)  || params[:index] == "all"%>
       <div class="card-created-evenement">
         <% @created_events.each do |created_event| %>
@@ -38,6 +38,18 @@
                     <h5 class="card-title"><%= created_event.name %></h5>
                     <p class="card-text"><%= created_event.address %></p>
                     <p class="card-text"><small class="text-muted"> Du <%= created_event.start_at %> au <%= created_event.end_at %></small></p>
+                    <% created_event.bookings.where.not(status: "declined").each do |booking| %>
+                      <div>
+                        Demande de <%= booking.user.first_name %>
+                        <% if booking.status == "accepted" %>
+                          <%= link_to 'Accepter', accept_booking_path(booking), class: "btn btn-success", method: :post %>
+                          <%= link_to 'Refuser', decline_booking_path(booking), class: "btn btn-danger", method: :post %>
+                        <% end %>
+                      </div>
+                    <% end %>
+
+
+
                   </div>
                 </div>
               </div>
@@ -72,6 +84,6 @@
     <% end %>
   </div>
 
-<% console %>
+<%= link_to "Toutes les activités", events_path %>
 
-
+<%# console %>
