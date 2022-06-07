@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     # search sur la destination et la date
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).order(category: :desc)
     @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
     if params.dig(:query, :start_date).present? && params.dig(:query, :start_date) != ""
       @events = @events.where("start_at >= ?", params[:query][:start_date]).where("start_at <= ?", params[:query][:end_date]).distinct.or(
@@ -23,16 +23,27 @@ class EventsController < ApplicationController
         color: $lavande,
         draggable: true,
         info_window: render_to_string(partial: "info_window", locals: {event: event}),
-        image_url: helpers.asset_url("navire-viking-bleu.png")
+        image_url: helpers.asset_url("marqueur.png")
       }
     end
   end
 
+  
 
   def show
     @event = Event.find(params[:id])
     authorize @event
     @booking = Booking.new
+    @markers = [
+      {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        color: $lavande,
+        draggable: true,
+        info_window: render_to_string(partial: "info_window", locals: {event: @event}),
+        image_url: helpers.asset_url("marqueur.png")
+      }
+    ]
   end
 
   def new

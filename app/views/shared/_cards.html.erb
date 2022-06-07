@@ -29,7 +29,7 @@
   <div class="col-8 ">
     <div class="d-flex flex-wrap justify-content-center">
       <% @events.each do |event|%>
-        <div class="p-3 m-3 border rounded shadow-sm" style="width: 30%;">
+        <div class="p-3 m-3 border rounded shadow-tribu" style="width: 30%;">
           <div class="photo mb-3 mt-5 text-center rounded mx-auto d-block" >
             <% if event.photo.present? %>
               <%= cl_image_tag event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
