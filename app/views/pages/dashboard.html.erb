@@ -49,26 +49,22 @@
         <% end %>
       </div>
     <% end %>
+
     <% if params[:index] == "bookings" || params[:index] == "all"%>
-      <div class="card-participating-evenement">
+      <div class="card-created-evenement">
         <% @participating_events.each do |participating_event| %>
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="card-event">
-                <div class="photo col-md-4">
+          <div class="card-dash mb-3 d-flex border border-primary" style="max-width: 640px">
                   <% if participating_event.photo.present? %>
-                    <%= cl_image_tag participating_event.photo.key, height: 150, crop: :fill, class: "w-100 align-self-center rounded", style: "object-fit: cover;"%>
+                    <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
                   <% end %>
-                </div>
-                <div class="col-md-8">
+              <div class="card-dash-infos">
                   <div class="card-body">
-                    <h5 class="card-title"><%= participating_event.name %></h5>
-                    <p class="card-text"><%= participating_event.address %></p>
-                    <p class="card-text"><small class="text-muted"><%= participating_event.price %><%= participating_event.start_at %><%= participating_event.end_at %><%= participating_event.category %></small></p>
+                    <h5><%= participating_event.name %></h5>
+                    <p><%= participating_event.address %></p>
+                    <p><small class="text-muted"><%= participating_event.price %> €</small></p>
+                    <p><small>Du <%= participating_event.start_at %> au <%= participating_event.end_at %><%#= participating_event.category %></small></p>
                   </div>
-                </div>
               </div>
-            </div>
           </div>
         <% end %>
       </div>
