@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     # search sur la destination et la date
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).order(category: :desc)
     @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
     if params.dig(:query, :start_date).present? && params.dig(:query, :start_date) != ""
       @events = @events.where("start_at >= ?", params[:query][:start_date]).where("start_at <= ?", params[:query][:end_date]).distinct.or(
