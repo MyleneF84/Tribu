@@ -1,0 +1,20 @@
+<div class="container mt-5 mb-6">
+  <div class="col-sm-12 d-flex justify-content-around row">
+    <h3 class="mb-5 text-center"> Evenements locaux à la carte </h2>
+      <% @last_events.each do |event| %>
+        <div class="card-home shadow-sm p-3 mb-5 bg-white" style="width: 18rem;">
+          <div class="d-block mb-3 mx-auto photo rounded text-center" >
+            <% if event.photo.present? %>
+              <%= cl_image_tag event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+            <% end %>
+          </div>
+          <div class="card-body">
+          <%= link_to event_path(event), class: "clickable-cards" do %>
+            <p class="card-text"><%= event.name %><%= event.address %></p>
+      <% end %>
+        </div>
+  </div>
+          <% end %>
+</div>
+
+

@@ -1,7 +1,7 @@
 .navbar-tribu {
   justify-content: space-between;
   background: $saumon;
-  height: $navbar-height;
+  height: 50px;
 }
 
 .navbar-tribu .navbar-collapse {
@@ -28,10 +28,4 @@
 
 .pe-auto {
   background-color: $lavande;
-  padding-right: 17%;
-  padding-left: 17%;
-  padding-bottom: 17%;
-  margin-right: 15px;
-  margin-top: 10px;
-  border-radius: 50%
 }
