@@ -13,11 +13,15 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v11"
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [2.7015872, 48.4049375],
+      zoom: 8
     })
 
     this.#addMarkersToMap();
-    this.#fitMapToMarkers();
+    if (document.getElementById('map-show')) {
+      this.#fitMapToMarkers();
+    }
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
   }
@@ -30,8 +34,8 @@ export default class extends Controller {
         customMarker.className = "marker"
         customMarker.style.backgroundImage = `url('${marker.image_url}')`
         customMarker.style.backgroundSize = "contain"
-        customMarker.style.width = "25px"
-        customMarker.style.height = "25px"
+        customMarker.style.width = "30px"
+        customMarker.style.height = "30px"
 
         new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
