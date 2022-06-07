@@ -1,12 +1,13 @@
 .footer {
-  background: $creme;
+  background: #fff;
   align-items: center;
+  height: 50px;
 }
 
 .footer-copyright {
   font-family: "Barlow Semi Condensed", "Roboto", "sans-serif";
-  color: $prune;
-  margin-top: 2ch;
+  color: #FF5E5B;
+  margin: 2ch;
 }
 
 .footer-links {
@@ -19,10 +20,10 @@
 
 .footer-links a {
   margin-top: 1ch;
-  color: $prune;
+  color: $saumon;
 }
 
 .footer-links a:hover {
   opacity: 1;
-  color:  $saumon
+  color:  $lavande
 }
