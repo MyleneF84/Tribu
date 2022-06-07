@@ -19,12 +19,10 @@
                 collection:["balades-visites", "nature-environnement", "sport", "entraide", "arts", "plantes-potager"] %>
             </div>
 
-        <div class="search-align d-inline-flex space">
+        <div class="search-align d-flex justify-content-evenly">
               <div class="w-50 pe-4">
                 <%= f.input :city, label: false, input_html: { data: {address_home_autocomplete_target: "city", value: (params[:query][:city] if params[:query])}, class: 'd-none' },
                 wrapper_html: { data: { controller: "address-home-autocomplete", address_home_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
-
-
               </div>
               <div class="w-50 d-flex">
                 <%= f.input :start_date, as: :date, html5: true, placeholder: '01-01-2022', label: false,
@@ -33,10 +31,10 @@
                 <%= f.input :end_date,  as: :date, html5: true, placeholder: '01-02-2022', label: false,
                             input_html: { class: 'bg-white border-0 rounded-pill form-control mx-2 w-100', value: (params[:query][:end_date] if params[:query])},
                             wrapper_html: { class: 'mb-0-important w-100' } %>
-                <button class="px-4 py-2 text-white rounded-pill bg-saumon border-0"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="px-3 py-1 text-white rounded-pill bg-purple border-0 mb-3"><i class="fa-solid fa-angles-right"></i></button>
               </div>
             <% end %>
-          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -75,6 +73,6 @@
   </div>
 </div>
 
-<div class="text-center p-6 m-6">
+<div class="text-center p-6 m-6", style="height: 150px">
   <%= link_to "Ajouter un nouvel évènement", new_event_path, class: 'boutton px-3 py-2 text-white rounded-pill bg-purple border-0 text-decoration-none justify-content-center text-center' if policy(Event).new? %>
 </div>
