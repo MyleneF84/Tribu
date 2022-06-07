@@ -15,7 +15,7 @@
             <%= link_to "Deviens un tributeur", new_event_path, class: "nav-link", class:"text-link" %>
           </li>
           <li class="nav-item dropdown">
-            <h2 class="pe-auto" role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><%= current_user.first_name.first + current_user.last_name.first%></h2>
+            <h2 class="m-0 p-1 pe-auto rounded-circle" role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><%= current_user.first_name.first + current_user.last_name.first%></h2>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Chercher un évent", events_path, class: "dropdown-item" %>
               <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
