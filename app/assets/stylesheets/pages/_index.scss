@@ -1,12 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
 
-.query_categories, .query_categories_private {
+.query_categories {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: none;
+  margin-bottom: 0px !important;
 }
 
 legend {
@@ -18,24 +19,27 @@ legend {
 
 }
 
-
-
 .check_boxes {
   justify-content: space-between;
   margin: 0px;
 }
 
-.checkboxpublic {
-  text-align: center;
-  margin: 0 10px 0 10px;
-  color: $lavande;
-  border-color: $lavande;
-}
+// .checkboxpublic {
+//   text-align: center;
+//   margin: 0 10px 0 10px;
+//   color: $lavande;
+//   border-color: $lavande;
+// }
 
 
-.checkboxprive {
-  text-align: center;
-  margin: 0 10px 0 10px;
-  color: $saumon;
-  border-color: $saumon;
+// .checkboxprive {
+//   text-align: center;
+//   margin: 0 10px 0 10px;
+//   color: $saumon;
+//   border-color: $saumon;
+// }
+
+.rechercher-btn {
+  font-weight: 600;
+  color: white
 }
