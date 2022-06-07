@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
-
   def index
     # search sur la destination et la date
     @events = policy_scope(Event).order(category: :desc)
+    # search par localisation
     @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
+    # search par date
     if params.dig(:query, :start_date).present? && params.dig(:query, :start_date) != ""
       @events = @events.where("start_at >= ?", params[:query][:start_date]).where("start_at <= ?", params[:query][:end_date]).distinct.or(
         @events.where("end_at >= ?", params[:query][:start_date]).where("end_at <= ?", params[:query][:end_date]).distinct
@@ -13,10 +14,11 @@ class EventsController < ApplicationController
         @events.where("start_at <= ?", params[:query][:start_date]).where("end_at >= ?", params[:query][:end_date]).distinct
       )
     end
+    # search par category
     if params.dig(:query, :categories).present? && params.dig(:query, :categories) != [""]
       @events = @events.select { |event| !(event.category & params.dig(:query, :categories).reject(&:empty?)).empty? }
     end
-    @markers = @events.geocoded.map do |event|
+    @markers = @events.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
@@ -27,8 +29,6 @@ class EventsController < ApplicationController
       }
     end
   end
-
-  
 
   def show
     @event = Event.find(params[:id])
