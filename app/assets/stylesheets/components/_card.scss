@@ -8,6 +8,18 @@
 
 .card-home {
   border-radius: 7px;
+  width: 18rem;
+}
+
+#events-container {
+  .card-home {
+    flex-basis: 49%;
+  }
+}
+
+.text-cards-home {
+font-weight: 100;
+padding-left: 30px;
 }
 
 
