@@ -48,7 +48,7 @@
 <div class="me-3 ms-5">
   <div class="d-flex justify-content-between mt-5">
     <div class="col-8 d-flex justify-content-between row" id="events-container">
-      <% @events.each do |event|%> 
+      <% @events.each do |event|%>
         <%= link_to event_path(event), class: "card-home shadow-lg p-3 mb-3 bg-white" do %>
           <div class="d-block mb-3 mx-auto photo rounded text-center" >
             <% if event.photo.present? %>
@@ -88,15 +88,15 @@
         <% end %>
       <% end %>
     </div>
-    
+
     <div class="col-4 mapindex">
       <div style="width: 100%; height: 100vh;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw'] %>">
       </div>
-
     </div>
+    
   </div>
 </div>
 
