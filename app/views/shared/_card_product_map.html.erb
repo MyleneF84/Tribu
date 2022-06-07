@@ -1,31 +1,30 @@
 <div class="col-5">
 
-  <div class="bg-white h-100 card-product-map d-lg-grid shadow-tribu w-auto d-flex flex-column">
+  <div class="bg-white h-100 card-product-map shadow-tribu w-auto d-flex flex-column">
     <div class="card-img flex-grow-1">
       <div class="mapindex">
-        <div style="width: 100%; height: 40vh;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw'] %>">
+        <div style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw'] %>">
         </div>
       </div>
     </div>
 
-    <div class="card-product-infos-bottom p-5">
+    <div class="card-product-infos-bottom p-3">
       <div class="date text-black">
-        <p>Du <%= @event.start_at.strftime("%d / %m") %></p>
-        <p>au <%= @event.end_at.strftime("%d / %m") %></p>
+        <p> Du <%= @event.start_at.strftime("%d / %m") %>  au  <%= @event.end_at.strftime("%d / %m") %></p>
       </div>
-      <div>
-        <em><h5 class="card-product-infos-address fs-6 d-flex pt-4"><%= @event.address %></h5></em>
-        <h6>  <strong>Tel : </strong><%= @event.phone_number %></h6>
-        <% if @event.number_of_participants.present? %>
-          <p>Nombre de participants : <%= @event.number_of_participants %></p>
-        <% end %>
-        <div class="btn text-white px-2 py-2 fs-5 bg-purple border-0 text-decoration-none">
-          <%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post} %>
-        </div>
-      </div>F
-    </div>
+    <div>
+
+    <ul>
+      <li><em><h5 class="card-product-infos-address fs-6 d-flex pt-4"><%= @event.address %></h5></em></li>
+      <li><h6><strong>Tel : </strong><%= @event.phone_number %></h6></li>
+      <% if @event.number_of_participants.present? %>
+        <li><p>Nombre de participants : <%= @event.number_of_participants %></p></li>
+      <% end %>
+      </li>
+    </ul>
+    <%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post }, class: "btn text-resa py-2 fs-5 border-0 text-decoration-none" %>
   </div>
 </div>
