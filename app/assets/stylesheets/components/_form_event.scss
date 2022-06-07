@@ -15,17 +15,16 @@ border-radius: 18px;
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  border-radius: 30rem;
+  border-radius: 2px;
   padding: 0.1rem 0.5rem;
   background-color: #ECEAFF;
-  color: $lavande;
-  border: 1px solid $lavande;
+  color: #AB9DFF;
   white-space: nowrap;
   margin-left: 0.5rem;
 }
 
 .tag-selector:checked + label {
-  background-color: $saumon;
+  background-color: $lavande;
   color: white;
 }
 
