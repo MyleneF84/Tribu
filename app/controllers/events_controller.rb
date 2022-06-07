@@ -23,7 +23,7 @@ class EventsController < ApplicationController
         color: $lavande,
         draggable: true,
         info_window: render_to_string(partial: "info_window", locals: {event: event}),
-        image_url: helpers.asset_url("navire-viking-bleu.png")
+        image_url: helpers.asset_url("marqueur.png")
       }
     end
   end
@@ -33,6 +33,16 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @booking = Booking.new
+    @markers = [
+      {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        color: $lavande,
+        draggable: true,
+        info_window: render_to_string(partial: "info_window", locals: {event: @event}),
+        image_url: helpers.asset_url("marqueur.png")
+      }
+    ]
   end
 
   def new
