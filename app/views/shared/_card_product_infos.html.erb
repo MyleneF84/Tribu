@@ -1,7 +1,7 @@
 
   <div class="col-7">
     <div class="card-product-infos shadow-sm p-3 bg-white d-lg-grid ">
-      <div class="photo mt-3 text-center rounded mx-auto d-block" >
+      <div class="photo text-center rounded mx-auto d-block" >
         <% if @event.photo.present? %>
             <%= cl_image_tag @event.photo.key, class: "align-self-center pb-2 rounded w-100"%>
         <% end %>

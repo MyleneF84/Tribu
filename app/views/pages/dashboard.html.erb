@@ -54,7 +54,7 @@
               <div class="card-event">
                 <div class="photo col-md-4">
                   <% if participating_event.photo.present? %>
-                    <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+                    <%= cl_image_tag participating_event.photo.key, height: 150, crop: :fill, class: "w-100 align-self-center rounded", style: "object-fit: cover;"%>
                   <% end %>
                 </div>
                 <div class="col-md-8">

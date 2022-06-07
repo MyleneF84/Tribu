@@ -1,7 +1,7 @@
 <div class="container mt-5 mb-6">
-  <div class="col-sm-12 d-flex justify-content-around row">
+  <div class="col-8 d-flex justify-content-around row">
     <h3 class="mb-5 mt-5 text-cards-home"> Evenements locaux à la carte </h2>
-    <% @last_events.each do |event| %>
+    <% @events.each do |event|%> 
       <%= link_to event_path(event), class: "card-home shadow-lg p-3 mb-5 bg-white", style: "width: 18rem;" do %>
         <div class="d-block mb-3 mx-auto photo rounded text-center" >
           <% if event.photo.present? %>
@@ -19,5 +19,4 @@
     <% end %>
   </div>
 </div>
-
 
