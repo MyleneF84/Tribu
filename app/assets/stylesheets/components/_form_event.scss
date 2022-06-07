@@ -1,6 +1,5 @@
 .form-event {
-background-color: $jaune_pale;
-border-radius: 18px;
+  border-radius: 18px;
 }
 
 .tag-item {
@@ -26,27 +25,6 @@ border-radius: 18px;
 
 .tag-selector:checked + label {
   background-color: $saumon;
-  color: white;
-}
-
-.input-1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.input-2 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.input-3 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.input-4 {
-  display: flex;
-  justify-content: space-between;
 }
 
 .form-check {
