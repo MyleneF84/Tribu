@@ -12,12 +12,12 @@
         <h3 class="heading mt-3 text-center">Trouvez le prochain évènement local près de vous </h3>
         <div class="d-flex justify-content-center px-5" id="address_home">
           <%= simple_form_for :query, url: events_path, method: :get, html:
-          { class: 'd-flex p-2 query rounded-pill w-75 justify-content-between', style: 'background-color: white;' } do |f| %>
+          { class: 'd-flex query rounded w-75 justify-content-between', style: 'background-color: white;' } do |f| %>
           <div class="madiv">
             <%= f.input :city, label: false, input_html: { data: {address_home_autocomplete_target: "city"}, class: 'd-none' },
             wrapper_html: { data: { controller: "address-home-autocomplete", address_home_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
           </div>
-            <button class="px-4 py-2 text-white rounded-pill bg-purple border-0"><i class="fa-solid fa-angles-right"></i></button>
+            <button class="px-3 py-1 m-2 text-white btn-square-md bg-purple border-0"><i class="fa-solid fa-angles-right"></i></button>
           <% end %>
         </div>
       </div>

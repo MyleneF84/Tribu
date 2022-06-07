@@ -6,17 +6,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: none;
 }
 
 legend {
   display: none;
 }
 
-.checkbox {
-  text-align: center;
-  margin: 0 30px 0 30px;
+.tag-item {
+  margin: 0px;
+
 }
+
+
 
 .check_boxes {
   justify-content: space-between;
+  margin: 0px;
+}
+
+.checkboxpublic {
+  text-align: center;
+  margin: 0 10px 0 10px;
+  color: $lavande;
+  border-color: $lavande;
+}
+
+
+.checkboxprive {
+  text-align: center;
+  margin: 0 10px 0 10px;
+  color: $saumon;
+  border-color: $saumon;
 }

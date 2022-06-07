@@ -1,6 +1,6 @@
 .navbar-tribu {
   justify-content: space-between;
-  background: $saumon;
+  background: $white;
   height: 50px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .navbar-tribu .text-link  {
-  color: white;
+  color: $lavande;
   text-decoration: none;
   align-items: center;
   letter-spacing: 0.2ch;
@@ -28,4 +28,11 @@
 
 .pe-auto {
   background-color: $lavande;
+  color: $white;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

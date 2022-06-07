@@ -15,7 +15,7 @@
             <%= link_to "Deviens un tributeur", new_event_path, class: "nav-link", class:"text-link" %>
           </li>
           <li class="nav-item dropdown">
-            <h2 class="m-0 p-1 pe-auto rounded-circle" role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><%= current_user.first_name.first + current_user.last_name.first%></h2>
+            <h2 class="m-2 p-2 pe-auto rounded-circle" role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><%= current_user.first_name.first + current_user.last_name.first%></h2>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Chercher un évent", events_path, class: "dropdown-item" %>
               <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
@@ -25,7 +25,7 @@
         <% else %>
           <li class="nav-item">
             <%= link_to "Deviens un tributeur", new_event_path, class: "nav-link", class:"text-link" %>
-            <%= link_to "Sign up", new_user_session_path, class: "nav-link", class:"btn-link", class:"px-4 py-1 text-white fs-5 font-weight-bold radius-btn-square bg-purple border-0 text-decoration-none" %>
+            <%= link_to "Sign up", new_user_session_path, class: "nav-link", class:"btn-link", class:"px-4 py-1 fs-5 font-weight-bold radius-btn-square bg-purple border-0 text-decoration-none" %>
           </li>
         <% end %>
       </ul>

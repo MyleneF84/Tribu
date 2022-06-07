@@ -2,39 +2,43 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
     <div class="col-md-10">
-      <div class="card-form mt-4 mb-4 p-4 form-query" id="address_index">
+      <div class="card-form mt-4 mb-4 p-4 form-query text-center" id="address_index">
         <h3 class="heading m-3 text-center">Trouvez le prochain évènement local près de vous </h3>
+        <h5 class="filtre">Filter par type </h5>
         <div class="d-flex justify-content-center px-5">
           <%= simple_form_for :query, url: events_path, method: :get, html: { class: 'd-flex flex-wrap p-2 query justify-content-between' } do |f| %>
+            <div class="tag-item mb-0 p-1">
 
-            <div class="checkbox justify-content-center w-100 d-flex space-between mr-1">
-              <%= f.input :categories,
-                as: :check_boxes,
-                collection: ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"] %>
+              <div class="checkboxpublic justify-content-center w-100 d-flex m-0 p-0">
+                <%= f.input :categories,
+                  as: :check_boxes,
+                  collection: ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition"],
+                  input_html: { class: "tag-selector" } %>
+              </div>
+
+              <div class="checkboxprive justify-content-center w-100 d-flex m-0 p-0">
+                <%= f.input :categories_private,
+                  as: :check_boxes,
+                  collection:["balades-visites", "nature-environnement", "sport", "entraide", "arts", "plantes-potager"],
+                  input_html: { class: "tag-selector" } %>
+              </div>
             </div>
 
-            <div class="checkbox justify-content-center w-100 d-flex space-between mr-1">
-              <%= f.input :categories_private,
-                as: :check_boxes,
-                collection:["balades-visites", "nature-environnement", "sport", "entraide", "arts", "plantes-potager"] %>
-            </div>
-
-        <div class="search-align d-flex justify-content-evenly">
+        <div class="search-align w-100 d-flex justify-content-evenly">
               <div class="w-50 pe-4">
                 <%= f.input :city, label: false, input_html: { data: {address_home_autocomplete_target: "city", value: (params[:query][:city] if params[:query])}, class: 'd-none' },
                 wrapper_html: { data: { controller: "address-home-autocomplete", address_home_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
               </div>
               <div class="w-50 d-flex">
-                <%= f.input :start_date, as: :date, html5: true, placeholder: '01-01-2022', label: false,
-                            input_html: { class: 'bg-white border-0 rounded-pill form-control mx-2 w-100', value: (params[:query][:start_date] if params[:query])},
+                <%= f.input :start_date, as: :date, html5: true, placeholder: '01-06-2022', label: false,
+                            input_html: { class: 'bg-white border-0 shadow-sm rounded form-control mx-2 w-100', value: (params[:query][:start_date] if params[:query])},
                             wrapper_html: { class: 'mb-0-important w-100' } %>
-                <%= f.input :end_date,  as: :date, html5: true, placeholder: '01-02-2022', label: false,
-                            input_html: { class: 'bg-white border-0 rounded-pill form-control mx-2 w-100', value: (params[:query][:end_date] if params[:query])},
+                <%= f.input :end_date,  as: :date, html5: true, placeholder: '01-07-2022', label: false,
+                            input_html: { class: 'bg-white border-0 shadow-sm rounded form-control mx-2 w-100', value: (params[:query][:end_date] if params[:query])},
                             wrapper_html: { class: 'mb-0-important w-100' } %>
-            <button class="px-3 py-1 text-white rounded-pill bg-purple border-0 mb-3"><i class="fa-solid fa-angles-right"></i></button>
+                <button class="px-3 py-1 text-white btn-square-md bg-purple border-0 mb-3"><i class="fa-solid fa-angles-right"></i></button>
               </div>
             <% end %>
-        </div>
         </div>
       </div>
     </div>
@@ -91,11 +95,12 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw'] %>">
       </div>
+
     </div>
   </div>
 </div>
 
 
 <div class="text-center p-6 m-6", style="height: 150px">
-  <%= link_to "Ajouter un nouvel évènement", new_event_path, class: 'boutton px-3 py-2 text-white rounded-pill bg-purple border-0 text-decoration-none justify-content-center text-center' if policy(Event).new? %>
+  <%= link_to "Ajouter un nouvel évènement", new_event_path, class: 'boutton px-4 py-3 text-white rounded fs-4 bg-purple border-0 text-decoration-none justify-content-center text-center' if policy(Event).new? %>
 </div>
