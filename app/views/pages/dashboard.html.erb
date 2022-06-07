@@ -50,15 +50,12 @@
                     <% created_event.bookings.where.not(status: "declined").each do |booking| %>
                       <div>
                         Demande de <%= booking.user.first_name %>
-                        <% if booking.status == "accepted" %>
+                        <% if booking.status == "en-attente" %>
                           <%= link_to 'Accepter', accept_booking_path(booking), class: "btn btn-success", method: :post %>
                           <%= link_to 'Refuser', decline_booking_path(booking), class: "btn btn-danger", method: :post %>
                         <% end %>
                       </div>
                     <% end %>
-
-
-
                   </div>
                 </div>
               </div>
