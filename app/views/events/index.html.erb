@@ -66,20 +66,27 @@
             </div>
           </div>
 
-          <div class="d-flex date-adress-phone justify-content-md-start text-black-50">
-            <div class="date">
+          <div class="d-flex date-adress-phone justify-content-lg-between text-black-50">
+            <div class="date-index">
               <p>Du <%= event.start_at.strftime("%d / %m") %></p>
               <p>au <%= event.end_at.strftime("%d / %m") %></p>
             </div>
             <div class="ms-5">
-                <h6>  <strong>Tel : </strong><%= event.phone_number %></h6>
-                Note : <% (event.id.to_i.modulo(5) + 1).times do %>
+                <h6>  <strong></strong><%= event.phone_number %></h6>
+                <% (event.id.to_i.modulo(5) + 1).times do %>
               <i class="fa-solid fa-star"></i>
               <% end %>
               <% (5 - (event.id.to_i.modulo(5) + 1)).times do %>
               <i class="fa-regular fa-star"></i>
               <% end %>
             </div>
+          <div class="public-prive">
+          <% if event.user %>
+              <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250533/noun-lock-821927_xdlair.png" >
+            <% else %>
+              <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250416/noun-public-4612037_oix7hj.png" >
+          <% end %>
+          </div>
           </div>
           <div class="border-top description mt-4 pt-4 text-black-50 text-center ">
             <%= event.description %>
