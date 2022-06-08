@@ -1,84 +1,96 @@
 <h1>Bienvenue sur ton dashboard <%= @current_user.first_name %> 🥳</h1>
 
-<div class="container mx-3">
-  <div class = "container my-3 d-flex justify-content-around">
-    <div class = "tab-dashboard">
-      <ul class="justify-content-around list-inline tabs-underlined nav nav-tabs">
-        <li class="nav-item"><%= link_to 'Hôte', dashboard_path(index: "host"), class:"nav-link #{ 'active' if (params[:index] == 'host' || params[:index] == nil)}" %></li>
-        <li class="nav-item"><%= link_to 'Participant', dashboard_path(index: "bookings"), class:"nav-link  #{ 'active' if params[:index] == 'bookings'}"  %></li>
-        <li class="nav-item"><%= link_to 'Toutes mes activités', dashboard_path(index: "all"), class:"nav-link  #{ 'active' if params[:index] == 'all'}"  %></li>
-      </ul>
-    </div>
+<div class="container mx-auto">
+  <div class="row">
+    <div class = "my-3 d-flex justify-content-around">
+      <div class = "tab-dashboard">
+        <ul class="justify-content-around list-inline tabs-underlined nav nav-tabs">
+          <li class="nav-item"><%= link_to 'Hôte', dashboard_path(index: "host"), class:"nav-link #{ 'active' if (params[:index] == 'host' || params[:index] == nil)}" %></li>
+          <li class="nav-item"><%= link_to 'Participant', dashboard_path(index: "bookings"), class:"nav-link  #{ 'active' if params[:index] == 'bookings'}"  %></li>
+          <li class="nav-item"><%= link_to 'Toutes mes activités', dashboard_path(index: "all"), class:"nav-link  #{ 'active' if params[:index] == 'all'}"  %></li>
+        </ul>
+      </div>
 
-    <h3>Prochains evenements</h3>
+      <h3>Prochains evenements</h3>
+    </div>
   </div>
 
-  <div class="row d-flex justify-content-between">
-    <div class="col-7">
+  <div class="row">
+    <div class="col-6">
       <% if (params[:index] == "host" || params[:index] == nil)  || params[:index] == "all"%>
 
-      <div class="card-created-evenement">
-        <% @created_events.each do |created_event| %>
+        <div class="card-created-evenement">
+          <% @created_events.each do |created_event| %>
 
-              <div class="card-dash mb-3 d-flex" style="max-width: 640px">
+            <div class="card-dash mb-3 d-flex" style="max-width: 640px">
 
-                  <% if created_event.photo.present? %>
-                    <%= cl_image_tag created_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
-                  <% end %>
+                <% if created_event.photo.present? %>
+                  <%= cl_image_tag created_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+                <% end %>
 
-                <div class="card-dash-infos">
-                  <h5><%= created_event.name %></h5>
-                  <p><%= created_event.address %></p>
-                  <p><small class="text-muted"> Du <%= created_event.start_at %> au <%= created_event.end_at %></small></p>
-                  <% created_event.bookings.where.not(status: "declined").each do |booking| %>
-                    <div>
-                      Demande de <%= booking.user.first_name %>
-                      <% if booking.status == "en-attente" %>
-                        <%= link_to(accept_booking_path(booking), method: :post) do %>
-                          <i class="fa-solid fa-check" style="color:#36C40F"></i>
-                        <% end %>
-                        <%= link_to(decline_booking_path(booking), method: :post) do %>
-                          <i class="fa-solid fa-xmark" style="color:#FF4145"></i>
-                        <% end %>
-                        <%#= link_to 'Refuser', decline_booking_path(booking), class: "btn btn-danger", method: :post %>
+              <div class="card-dash-infos">
+                <h5><%= created_event.name %></h5>
+                <p><%= created_event.address %></p>
+                <p><small class="text-muted"> Du <%= created_event.start_at %> au <%= created_event.end_at %></small></p>
+                <% created_event.bookings.where.not(status: "declined").each do |booking| %>
+                  <div>
+                    Demande de <%= booking.user.first_name %>
+                    <% if booking.status == "en-attente" %>
+                      <%= link_to(accept_booking_path(booking), method: :post) do %>
+                        <i class="fa-solid fa-check" style="color:#36C40F"></i>
                       <% end %>
-                    </div>
-                  <% end %>
+                      <%= link_to(decline_booking_path(booking), method: :post) do %>
+                        <i class="fa-solid fa-xmark" style="color:#FF4145"></i>
+                      <% end %>
+                      <%#= link_to 'Refuser', decline_booking_path(booking), class: "btn btn-danger", method: :post %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if params[:index] == "bookings" || params[:index] == "all"%>
+        <div class="card-created-evenement">
+          <% @participating_events.each do |participating_event| %>
+            <div class="card-dash mb-3 d-flex border border-primary" style="max-width: 640px">
+              <% if participating_event.photo.present? %>
+                <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+              <% end %>
+              <div class="card-dash-infos">
+                <div class="card-body">
+                  <h5><%= participating_event.name %></h5>
+                  <p><%= participating_event.address %></p>
+                  <p><small class="text-muted"><%= participating_event.price %> €</small></p>
+                  <p><small>Du <%= participating_event.start_at %> au <%= participating_event.end_at %><%#= participating_event.category %></small></p>
+                  <p>
+                    <%# @participating_event.bookings.where.not(rating: nil).to_i.times do  %>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <%# end %>
+                  </p>
                 </div>
               </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    <% if params[:index] == "bookings" || params[:index] == "all"%>
-      <div class="card-created-evenement">
-        <% @participating_events.each do |participating_event| %>
-          <div class="card-dash mb-3 d-flex border border-primary" style="max-width: 640px">
-                  <% if participating_event.photo.present? %>
-                    <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
-                  <% end %>
-              <div class="card-dash-infos">
-                  <div class="card-body">
-                    <h5><%= participating_event.name %></h5>
-                    <p><%= participating_event.address %></p>
-                    <p><small class="text-muted"><%= participating_event.price %> €</small></p>
-                    <p><small>Du <%= participating_event.start_at %> au <%= participating_event.end_at %><%#= participating_event.category %></small></p>
-                    <p><%# @participating_event.bookings.where.not(rating: nil).to_i.times do  %>
-                      <span class="glyphicon glyphicon-star"></span>
-                      <%# end %></p>
-                  </div>
-              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <div class="card-product-map w-auto d-flex flex-column">
+        <div class="map-dashboard">
+          <div style="width: 100%; height: 40vh;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw'] %>">
           </div>
-        <% end %>
+        </div>
       </div>
-    <% end %>
     </div>
 
-    <div class="col-5">
-    Placeholder MAP
-    </div>
   </div>
-  </div>
+</div>
 
 
 
