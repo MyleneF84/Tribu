@@ -33,7 +33,7 @@ puts 'Finished!'
 puts 'Creating categories'
 # parametres de scrapping
 distance = 40 # kilometres
-location = "france,ile-de-france,seine-et-marne,moret-loing-et-orvanne"
+location = "france,provence-alpes-cote-d-azur,vaucluse,oppede"
 date = Date.today.strftime("%Y_%m_%d") # aka a partir d'aujourd'hui
 categories = ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition" ]
 categories_private = ["balades-visites", "nature-environnement", "sport", "entraide", "arts", "plantes-potager"]
@@ -126,7 +126,7 @@ Booking.create!(
   user_id: user2.id,
   event_id: event3.id,
   rating: "5",
-  status: "pending",
+  status: "accepted",
   reviews: "Quel beau moment !"
 )
 
@@ -134,7 +134,7 @@ Booking.create!(
   user_id: user3.id,
   event_id: event1.id,
   rating: "3",
-  status: "denied",
+  status: "en-attente",
   reviews: "Nous reviendrons, c'est certain :)"
 )
 puts 'Finished!'
