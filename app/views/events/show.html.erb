@@ -1,7 +1,7 @@
 <div class = "show-container">
-  <%= link_to "Retour à la recherche", events_path, class: "bg-purple border-0 px-3 py-2 text-center text-decoration-none text-white" %>
   <div class="container">
-    <div class="row justify-content-center my-3 align-items-stretch" id="map-show">
+    <%= link_to "Retour à la recherche", events_path, class: "d-inline-block border-0 mt-4 text-center text-decoration-none text-white fs-5" %>
+    <div class="row justify-content-center mb-5 mt-3 align-items-stretch" id="map-show">
       <%= render "shared/card_product_infos", event: @event %>
       <%= render "shared/card_product_map" %>
     </div>
