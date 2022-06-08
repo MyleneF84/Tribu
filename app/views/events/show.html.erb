@@ -14,10 +14,10 @@
 <% end %>
   <div class="d-flex space-between">
   <% if policy(@event).edit? %>
-    <%= link_to "Editer", edit_event_path(@event) %>|
+    <%= link_to "Editer", edit_event_path(@event), class: "px-4 py-2-5 mb-2 text-grey radius-btn-square bg-yellow border-0 text-decoration-none" %>
   <% end %>
 
   <%#= button_to "Destroy this event", @event, data: {turbo_method: :delete} if policy(@event).destroy? %>
-  <%= button_to "Supprimer", @event, method: :delete if policy(@event).destroy? %>
+  <%= button_to "Supprimer", @event, class: "px-4 py-1 mb-2 mt-2 text-grey radius-btn-square bg-purple border-1 text-decoration-none" , method: :delete if policy(@event).destroy? %>
   <%# <%= link_to 'Dashboard', dashboard_path(current_user) %>
   </div>
