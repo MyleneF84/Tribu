@@ -4,6 +4,11 @@
   height: 70px;
 }
 
+.logo {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navbar-tribu .navbar-collapse {
   flex-grow: 0;
 }

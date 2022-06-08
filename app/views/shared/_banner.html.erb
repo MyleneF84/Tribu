@@ -1,14 +1,16 @@
 <div class="banner">
       <div class="text-banner">
-      <h1><strong>Tribu</strong></h1>
-      <h4>Exhausteur d'aventures</h4>
-      <p>En France, il se passe toujours quelque chose !</p>
+      <%# <h1><strong>Tribu</strong></h1> %>
+      <%# <h4>Exhausteur d'aventures</h4> %>
+      <%# <p>Trouvez le prochain évènement local près de vous</p> %>
       </div>
   <div class="container">
     <div class="row d-flex justify-content-center banner-search-card">
       <div class="col-md-7">
+      <div class="litle mb-5"><p>Trouvez le prochain évènement local près de vous</p></div>
+      <div class="big mt-5"><h4>Exhausteur d'aventures</h4></div>
         <div class="card-form form-query">
-          <h3 class="heading mt-3 text-center">Trouvez le prochain évènement local près de vous </h3>
+          <%# <h3 class="heading mt-3 text-center">Trouvez le prochain évènement local près de vous </h3> %>
           <div class="d-flex justify-content-center px-5" id="address_home">
             <%= simple_form_for :query, url: events_path, method: :get, html:
             { class: 'd-flex query rounded w-75 justify-content-between', style: 'background-color: white;' } do |f| %>
