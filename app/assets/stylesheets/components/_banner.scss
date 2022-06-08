@@ -9,31 +9,27 @@
 .banner h1 {
   font-size: 3.5rem;
 }
-
-.banner-search-card {
-  margin-top: -180px;
-}
-
+// .banner-search-card {
+//  }
 .text-banner {
-  margin-bottom: 1rem !important;
+  margin-bottom: 9rem !important;
   text-align: center;
   margin-top: 1px;
-  position: absolute;
-  top: 15%;
-  left: 40%;
+  // position: absolute;
+  // top: 15%;
+  // left: 40%;
 }
-
 .banner-btn {
   display: flex;
   justify-content: center;
   border-radius: 5rem;
 }
-
 .card-form {
   border-radius: 5px;
   background: white;
   border-color: gray;
-
+  // position: absolute;
+  // top: 362px;
 }
 .search {
   width: 100%;
@@ -44,7 +40,6 @@
   padding: 10px;
   border-radius: 5px;
 }
-
 .search-input {
     color: white;
     border: 0;
@@ -54,9 +49,8 @@
     margin-top: 5px;
     caret-color: transparent;
     line-height: 20px;
-    transition: width 0.4s linear
+    transition: width 0.4s linear;
 }
-
 .search .search-input {
     padding: 0 10px;
     width: 100%;
@@ -67,15 +61,11 @@
     transition: width 0.4s linear;
     text-decoration: none;
 }
-
-
 .form-query {
   // box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.07);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 7px;
 }
-
-
 .search-icon {
     height: 34px;
     min-width : 50px;
@@ -89,7 +79,6 @@
     bottom: 30px;
     border-style: none;
 }
-
 .mb-0-important {
   margin-bottom: 0 !important;
 }
