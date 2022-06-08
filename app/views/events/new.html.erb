@@ -1,47 +1,28 @@
 <div class="container">
-
-<div class="form-event m-5 p-5 shadow-lg">
-<h1 class="mb-5 text-center">Créez votre evenement</h1>
-
-<h6 class= "text-end">Your are connected as : <%= current_user.first_name %></h6>
-  <%= simple_form_for(@event, html: {data: {controller: "flatpickr"}}) do |f| %>
-      <%= f.input :photo, as: :file %>
-    <div class="input-1">
-      <div class="w-50 p-3"><%= f.input :name %></div>
-      <div class="w-50 p-3"><%= f.input :description %></div>
-    </div>
-    <div class="input-2">
-      <div class="w-50 p-3"><%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-      </div>
-      <div class="w-50 p-3"><%= f.input :phone_number%></div>
-    </div>
-    <div class="input-3">
-      <div class="w-50 p-3"><%= f.input :number_of_participants%></div>
-      <div class="w-50 p-3"><%= f.input :price %></div>
-    </div>
-      <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item mt-3' %>
-    <div class="input-4">
-      <div class="w-50 p-3"><%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %></div>
-      <div class="w-50 p-3"><%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %></div>
-    </div>
-    <%#= f.input :photo, as: :file %>
-    <%#= f.input :name %>
-    <%#= f.input :description %>
-    <%#= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-    <%#= f.input :phone_number%>
-    <%#= f.input :price %>
-    <%#= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-    <%#= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %>
-    <%#= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %>
-    <%#= f.input :number_of_participants%>
-
-    <div class="text-center mt-5"><%= f.submit "#{ @event.persisted? ? 'Updater' : 'Créer' } mon evenement", class: 'btn bg-purple' %></div>
-
-  <% end %>
-<%#= link_to "Back to Home", root_path %>
-
-</div>
-
+  <div class="form-event m-5 p-5 shadow-lg">
+    <h1 class="mb-5 text-center">Créez votre evenement</h1>
+    <h6 class= "text-end text-right">Your are connected as : <%= current_user.first_name %></h6>
+          <%= simple_form_for(@event, html: {data: {controller: "flatpickr"}}) do |f| %>
+          <div class="photo"><%= f.input :photo, as: :file %></div>
+        <div class="input-1">
+          <%= f.input :name %>
+          <%= f.input :description %>
+        </div>
+        <div class="input-2">
+          <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+          <%= f.input :phone_number%>
+        </div>
+        <div class="input-3">
+          <%= f.input :number_of_participants%>
+          <%= f.input :price %>
+        </div>
+          <div class="photo"><%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item mt-3' %></div>
+        <div class="input-4">
+          <%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %>
+          <%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %>
+        </div>
+      <div class="text-center mt-5"><%= f.submit "#{ @event.persisted? ? 'Updater' : 'Créer' } mon evenement", class: 'btn px-4 py-3 text-white rounded  fs-4 bg-purple border-0 text-decoration-none' %></div>
+      <% end %>
+  </div>
 </div>
