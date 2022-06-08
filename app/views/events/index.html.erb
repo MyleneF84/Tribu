@@ -73,6 +73,12 @@
             </div>
             <div class="ms-5">
                 <h6>  <strong>Tel : </strong><%= event.phone_number %></h6>
+                Note : <% (event.id.to_i.modulo(5) + 1).times do %>
+              <i class="fa-solid fa-star"></i>
+              <% end %>
+              <% (5 - (event.id.to_i.modulo(5) + 1)).times do %>
+              <i class="fa-regular fa-star"></i>
+              <% end %>
             </div>
           </div>
           <div class="border-top description mt-4 pt-4 text-black-50 text-center ">
@@ -89,8 +95,6 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoibmluZWdhciIsImEiOiJjbDJ1ZjdycHcwMWZkM2lxd25oNWVvYmRuIn0.wwjf2AD13hqlRCo94Rg5Lw'] %>">
       </div>
     </div>
-    
+
   </div>
 </div>
-
-

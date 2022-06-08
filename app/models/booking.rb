@@ -4,6 +4,6 @@ class Booking < ApplicationRecord
   STATUS = %w[accepted declined en-attente]
   validates :status, inclusion: { in: STATUS }
   #validates :rating
-  #validates :rating, numericality: { only_integer: true }
-  #validates :rating, inclusion: { in: (0..5) }
+  validates :rating, numericality: { only_integer: true }
+  validates :rating, inclusion: { in: (1..5) }
 end

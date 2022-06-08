@@ -63,6 +63,9 @@
                     <p><%= participating_event.address %></p>
                     <p><small class="text-muted"><%= participating_event.price %> €</small></p>
                     <p><small>Du <%= participating_event.start_at %> au <%= participating_event.end_at %><%#= participating_event.category %></small></p>
+                    <p><%# @participating_event.bookings.where.not(rating: nil).to_i.times do  %>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <%# end %></p>
                   </div>
               </div>
           </div>
