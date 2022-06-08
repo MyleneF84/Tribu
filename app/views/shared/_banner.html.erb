@@ -6,14 +6,14 @@
       </div>
   <div class="container">
     <div class="row d-flex justify-content-center banner-search-card">
-      <div class="col-md-7">
       <div class="litle mb-5"><p>Trouvez le prochain évènement local près de vous</p></div>
       <div class="big mt-5"><h4>Exhausteur d'aventures</h4></div>
+      <div class="col-5">
         <div class="card-form form-query">
           <%# <h3 class="heading mt-3 text-center">Trouvez le prochain évènement local près de vous </h3> %>
-          <div class="d-flex justify-content-center px-5" id="address_home">
+          <div class="d-flex justify-content-center" id="address_home">
             <%= simple_form_for :query, url: events_path, method: :get, html:
-            { class: 'd-flex query rounded w-75 justify-content-between', style: 'background-color: white;' } do |f| %>
+            { class: 'd-flex query rounded w-100 justify-content-between', style: 'background-color: white;' } do |f| %>
             <div class="madiv">
               <%= f.input :city, label: false, input_html: { data: {address_home_autocomplete_target: "city"}, class: 'd-none' },
               wrapper_html: { data: { controller: "address-home-autocomplete", address_home_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>

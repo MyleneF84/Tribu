@@ -19,16 +19,16 @@
   font-size: 3.5rem;
 }
 .banner p{
-  font-size: 1.4rem;
-  color: $white;
+  font-size: 36px;
+  color: whitesmoke;
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .banner h4 {
-  font-size: 5rem;
+  font-size: 57px;
   font-weight: 900;
-  color: $white;
+  color: #fff;
   text-align: center;
 }
 // .banner-search-card {
@@ -104,4 +104,12 @@
 }
 .mb-0-important {
   margin-bottom: 0 !important;
+}
+
+// .mapboxgl-ctrl-geocoder, .mapboxgl-ctrl-geocoder .suggestions{
+//   box-shadow: none;
+// } 
+
+.madiv * .mapboxgl-ctrl-geocoder.mapboxgl-ctrl{
+  box-shadow: none;
 }
