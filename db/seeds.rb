@@ -138,3 +138,4 @@ Booking.create!(
   reviews: "Nous reviendrons, c'est certain :)"
 )
 puts 'Finished!'
+

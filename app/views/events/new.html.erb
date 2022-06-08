@@ -20,7 +20,7 @@
       <div class="w-50 p-3"><%= f.input :number_of_participants%></div>
       <div class="w-50 p-3"><%= f.input :price %></div>
     </div>
-      <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+      <%= f.input :category, collection: Event::LIST, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item mt-3' %>
     <div class="input-4">
       <div class="w-50 p-3"><%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %></div>
       <div class="w-50 p-3"><%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %></div>
