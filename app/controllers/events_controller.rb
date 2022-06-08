@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     if params.dig(:query, :categories).present? && params.dig(:query, :categories) != [""]
       @events = @events.select { |event| !(event.category & params.dig(:query, :categories).reject(&:empty?)).empty? }
     end
-    ids = @events.pluck(:id)
+    ids = @events.map(&:id)
     @events = Event.where(id: ids)
     @markers = @events.geocoded.map do |event|
       {
