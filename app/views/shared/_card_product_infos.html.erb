@@ -3,7 +3,7 @@
     <div class="card-product-infos shadow-sm p-3 bg-white">
       <div class="photo text-center rounded mx-auto d-block" >
         <% if @event.photo.present? %>
-            <%= cl_image_tag @event.photo.key, class: "align-self-center pb-2 rounded w-100"%>
+            <%= cl_image_tag @event.photo.key, class: "align-self-center pb-2 rounded w-100", style: "height: 50vh; object-fit: cover;"%>
         <% end %>
       </div>
         <div class="card-title">
@@ -32,6 +32,6 @@
       <div class="border-top description mt-4 pt-4 text-black-50 text-center ">
         <%= @event.description %>
       </div>
-      
+
     </div>
   </div>

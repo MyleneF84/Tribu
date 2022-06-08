@@ -7,10 +7,8 @@
 }
 
 .mapindex {
-  height: 100%;
-  > div {
-    position: sticky;
-    top: 0;
-  }
   // padding-block: 1rem;
+  position: sticky;
+  height: fit-content;
+  top: 0;
 }
