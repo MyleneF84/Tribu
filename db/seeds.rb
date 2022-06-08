@@ -73,7 +73,7 @@ puts 'Creating Events...'
 event1 = Event.create!(
   name: "Moment à la ferme",
   description: "Partagez un moment du quotidien dans ma ferme ! Au programme : nourrir les animaux de la basse-cour, remplir les abreuvoirs, et passez un joli moment avec les agneaux qui viennent de naitre. Les enfants sont évidemment les bienvenus",
-  address: "36 route du Luberon, 91320 WISSOUS",
+  address: "8 Rue du Couvent, 13430 Eyguières",
   price: "15",
   category: [categories_private[1], categories_private[3]],
   start_at: Date.today,
@@ -87,7 +87,7 @@ event1.save
 event2 = Event.create!(
   name: "Tailler le jardin",
   description: "Mon jardin est immense et possède plein de plantes ! Pendant cette journée, vous pourrez m'aider à m'occuper des fleurs, mais aussi du potager, et vous servir en bouture !",
-  address: "4 rue Jean-Jaurès, 94240 l'Haÿ-les-Roses",
+  address: "Place Victor Hugo, 13560 Sénas",
   price: "10",
   category: [categories_private[5]],
   start_at: Date.yesterday,
@@ -101,7 +101,7 @@ event2.save
 event3 = Event.create!(
   name: "Balade à Vélo",
   description: "Je vous propose une balade à velo afin de vous faire découvrir différents endroit de la région ! Moment convivial garanti :)",
-  address: "4 allée mansart, 94260 FRESNES",
+  address: "Avenue Louis Sammut, 13500 Martigues",
   price: "5",
   category: [categories_private[0], categories_private[2]],
   start_at: Date.today,
@@ -138,4 +138,3 @@ Booking.create!(
   reviews: "Nous reviendrons, c'est certain :)"
 )
 puts 'Finished!'
-
