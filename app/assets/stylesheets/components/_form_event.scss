@@ -1,6 +1,7 @@
 .form-event {
-background-color: $white;
+background-color: $jaune_pale;
 border-radius: 18px;
+color: $lavande;
 }
 
 .form-control {
@@ -33,24 +34,47 @@ border-radius: 18px;
   color: white;
 }
 
+.container {
+  width: 50%;
+}
+
+.photo {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+.input {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 .input-1 {
   display: flex;
   justify-content: space-between;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 .input-2 {
   display: flex;
   justify-content: space-between;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 .input-3 {
   display: flex;
   justify-content: space-between;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 .input-4 {
   display: flex;
   justify-content: space-between;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 .form-check {
