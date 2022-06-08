@@ -12,11 +12,12 @@
     <%= render "bookings/form", event: @event, booking: @booking %>
   <%# </div>
 <% end %>
-
+  <div class="d-flex space-between">
   <% if policy(@event).edit? %>
-    <%= link_to "Edit this event", edit_event_path(@event) %> |
+    <%= link_to "Editer", edit_event_path(@event) %>|
   <% end %>
 
   <%#= button_to "Destroy this event", @event, data: {turbo_method: :delete} if policy(@event).destroy? %>
-  <%# <%= button_to "Delete my event", @event, method: :delete if policy(@event).destroy? %>
+  <%= button_to "Supprimer", @event, method: :delete if policy(@event).destroy? %>
   <%# <%= link_to 'Dashboard', dashboard_path(current_user) %>
+  </div>

@@ -14,8 +14,8 @@ class BookingsController < ApplicationController
     @booking.status = "en-attente"
     @booking.user = current_user
     if @booking.save
-      flash[:notice] = "Booking succes !!"
-      redirect_to dashboard_path(@event)
+      flash[:notice] = "Booking success !!"
+      redirect_to dashboard_path
     else
       flash[:alert] = "Error, verify your information"
       render 'events/show', status: :unprocessable_entity
