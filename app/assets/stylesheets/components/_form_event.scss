@@ -1,6 +1,11 @@
 .form-event {
-background-color: $jaune_pale;
+background-color: $white;
 border-radius: 18px;
+}
+
+.form-control {
+ background-color: $white;
+ box-shadow: 3px 3px 3px $light-gray;
 }
 
 .tag-item {
