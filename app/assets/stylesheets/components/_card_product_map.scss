@@ -11,7 +11,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FF5E5B !important;
+  color: $saumon;
   margin-top: 3rem;
-  background-color: rgba(255, 94, 91, 0.3);
+  background-color: white;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.text-resa:hover {
+  color: red;
+}
+
+.date {
+  font-size: 30px;
+}
+
+.address {
+background-color: rgba(254, 248, 248, 0.4);
+}
+
+.address > h6 {
+padding: 3px;
 }
