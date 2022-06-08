@@ -1,25 +1,26 @@
 .banner {
-  background-image: url(https://res.cloudinary.com/dgw2zajw1/image/upload/v1654609198/priscilla-du-preez-jFyavA0669c-unsplash_rr3xpj.jpg);
+  background-image: url(https://community.hivency.com/hubfs/Top%2010%20des%20meilleurs%20amis-1.jpg);
   background-position: center center;
   background-size: cover;
   padding: 30px 0;
-  height: 500px;
+  height: 70vh;
 }
 
 .banner h1 {
   font-size: 3.5rem;
 }
 
-// .banner-search-card {
-//  }
+.banner-search-card {
+  margin-top: -180px;
+}
 
 .text-banner {
-  margin-bottom: 9rem !important;
+  margin-bottom: 1rem !important;
   text-align: center;
   margin-top: 1px;
-  // position: absolute;
-  // top: 15%;
-  // left: 40%;
+  position: absolute;
+  top: 15%;
+  left: 40%;
 }
 
 .banner-btn {
@@ -32,8 +33,6 @@
   border-radius: 5px;
   background: white;
   border-color: gray;
-  // position: absolute;
-  // top: 362px;
 
 }
 .search {
@@ -55,7 +54,7 @@
     margin-top: 5px;
     caret-color: transparent;
     line-height: 20px;
-    transition: width 0.4s linear;
+    transition: width 0.4s linear
 }
 
 .search .search-input {
