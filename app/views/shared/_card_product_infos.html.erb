@@ -14,12 +14,13 @@
           <% end %>
             <h3 class="text-center"><%= @event.name %></h3>
         </div>
-      <div class="card-product-infos-top d-flex align-items-center">
+      <div class="align-items-center card-product-infos-top d-flex justify-content-between">
           <%# if @event.user %>
               <%# <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250533/noun-lock-821927_xdlair.png"> %>
             <%# else %>
               <%# <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250416/noun-public-4612037_oix7hj.png"> %>
           <%# end %>
+          <div class="price-category">
           <% if @event.price.eql? 0 %>
             <span class="badge m-1 tag-price">gratuit</span>
             <% else %>
@@ -28,12 +29,15 @@
             <% @event.category.each do |category| %>
               <p class="badge tag-category m-1"><%= category %></p>
             <% end %>
-              Note : <% (@event.id.to_i.modulo(5) + 1).times do %>
-              <i class="fa-solid fa-star"></i>
-              <% end %>
-              <% (5 - (@event.id.to_i.modulo(5) + 1)).times do %>
-              <i class="fa-regular fa-star"></i>
-              <% end %>
+          </div>
+      <div class="note">
+        Note : <% (@event.id.to_i.modulo(5) + 1).times do %>
+        <i class="fa-solid fa-star"></i>
+        <% end %>
+        <% (5 - (@event.id.to_i.modulo(5) + 1)).times do %>
+        <i class="fa-regular fa-star"></i>
+        <% end %>
+      </div>
       </div>
       <div class="border-top description mt-4 pt-4 text-black-50 text-center ">
         <%= @event.description %>
