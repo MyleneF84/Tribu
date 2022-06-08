@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <html xmlns:og="http://ogp.me/ns#">
   <head>
   <%= favicon_link_tag %>
 
@@ -13,7 +14,6 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
-
 
 <title><%= meta_title %></title>
 <meta name="description" content="<%= meta_description %>">
@@ -34,7 +34,7 @@
 <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
 <meta name="twitter:image:src" content="<%= meta_image %>">
 
-
+<meta property="og:image" content="http://referenseo/images/open-graph.jpg" />
 
   </head>
 
