@@ -1,18 +1,30 @@
 .banner {
   background-image: url(https://community.hivency.com/hubfs/Top%2010%20des%20meilleurs%20amis-1.jpg);
   background-position: center center;
+  text-align: center;
   background-size: cover;
   padding: 30px 0;
-  height: 70vh;
+  // height: 50vh;
+}
+.superpose {
+  background-color: black;
+  background-position: center center;
+  text-align: center;
+  background-size: cover;
+  padding: 30px 0;
 }
 
-.litle{
+.litle {
   padding: 150px;
-  margin-top: -200px;
+  margin-top: -250px;
+  // position: relative;
+  position: absolute;
+  padding-top: 90px;
 }
 
 .big{
   margin-bottom: 20px;
+
 }
 
 .banner h1 {
@@ -20,9 +32,10 @@
 }
 .banner p{
   font-size: 36px;
-  color: whitesmoke;
+  color: white;
   text-align: center;
   font-weight: 500;
+  text-shadow: 1px 0 rgb(47, 47, 47);
 }
 
 .banner h4 {
@@ -108,8 +121,46 @@
 
 // .mapboxgl-ctrl-geocoder, .mapboxgl-ctrl-geocoder .suggestions{
 //   box-shadow: none;
-// } 
+// }
 
 .madiv * .mapboxgl-ctrl-geocoder.mapboxgl-ctrl{
   box-shadow: none;
+}
+
+
+// @media only screen and (min-width: 960px) {
+//   .banner
+//   {
+//     width: 960px;
+//     height: auto;
+//   }
+// }
+// @media only screen and (min-width: 1440px) {
+//   .banner
+//   {
+//     width: 1440px;
+//     height: auto;
+//   }
+// }
+
+@media only screen and (min-width: 2000px) {
+  .banner
+  {
+    width: 2000px;
+    height: auto;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+ .banner
+  {
+    width: 480px;
+    height: auto;
+  }
+}
+@media only screen and (device-width: 768px) {
+ .banner
+  {
+    width: 768px;
+    height: auto;
+  }
 }
