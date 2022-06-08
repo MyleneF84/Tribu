@@ -23,6 +23,8 @@
           <%# <p>Nombre de participants : <%= @event.number_of_participants %>
       <%# end %>
     </div>
+    <% unless current_user&.id == @event.user_id %>
     <%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post }, class: "reservation-btn border-0 fs-5 py-2 rounded-3 text-decoration-none text-resa" %>
+    <% end %>
   </div>
 </div>
