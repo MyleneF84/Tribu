@@ -3,15 +3,22 @@
   background-position: center center;
   text-align: center;
   background-size: cover;
-  padding: 30px 0;
+  padding: 0 0 30px 0;
   position: relative;
-  overflow: hidden;
-  .video {
+  .video-container {
+    max-height: 100%;
+    overflow: hidden;
     position: absolute;
     z-index: -1;
     left: 0;
+  }
+  .video {
     top: -8%;
     width: 100%;
+  }
+
+  .mt-custom {
+    margin-top: 8rem;
   }
 }
 .superpose {
@@ -52,10 +59,9 @@
   color: #fff;
   text-align: center;
 }
-// .banner-search-card {
-//  }
+
 .text-banner {
-  margin-bottom: 12rem !important;
+  // margin-bottom: 12rem !important;
   text-align: center;
   margin-top: 1px;
   color: $white;
@@ -72,7 +78,6 @@
   border-radius: 5px;
   background: white;
   border-color: gray;
-  // position: absolute;
   // top: 362px;
 }
 .search {
