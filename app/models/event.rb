@@ -1,4 +1,18 @@
 class Event < ApplicationRecord
+  CATEGORY = [
+    ['brocante-vide-grenier', 'brocante-vide-grenier'],
+    ['fête', 'fete'],
+    ['marché', 'marche'],
+    ['repas-dégustation', 'repas-degustation'],
+    ['musique', 'musique'],
+    ['exposition', 'exposition'],
+    ['balades-visites', 'balades-visites'],
+    ['nature-environnement', 'nature-environnement'],
+    ['sport', 'sport'],
+    ['entraide', 'entraide'],
+    ['arts', 'arts'],
+    ['plantes-potager', 'plantes-potager']
+  ]
   belongs_to :user, optional: true
   #has_many :event_categories, dependent: :destroy
   #has_many :categories, through: :event_categories
