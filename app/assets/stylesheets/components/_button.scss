@@ -5,6 +5,16 @@
 
 .bg-saumon { background-color: $saumon; }
 
-.radius-btn-square { border-radius: 10px; }
+.btn-square-md { 
+  border-radius: 5px; 
+  background-color: rgba(171,158,255,0.6);
+}
 
-.py-2-5 { padding-top: 0.8rem; padding-bottom: 0.8rem; }
+.btn-square-md:hover { 
+  background-color: $lavande;
+}
+
+
+
+
+// .py-2-5 { padding-top: 0.8rem; padding-bottom: 0.8rem; }
