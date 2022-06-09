@@ -112,6 +112,14 @@
           </div>
         </div>
       </div>
+      <div class="mt-3 calendar">
+      <%= week_calendar do |date| %>
+      <%= date %>
+      <% end %>
+      <%#= week_calendar(events: @events) do |date, events| %>
+      <%#= date %>
+      <%# end %>
+      </div>
     </div>
   </div>
 </div>
