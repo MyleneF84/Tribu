@@ -11,13 +11,17 @@
   justify-content: space-between;
 }
 
+.logo-tribu {
+  font-weight: 700;
+  font-size: 31px;
+}
+
 .navbar-tribu .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-tribu .navbar-brand img {
-  width: 60px;
-  border-radius: 50px;
+  width: 40px;
 }
 
 .navbar-tribu .nav-item {

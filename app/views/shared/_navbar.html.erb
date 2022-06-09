@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
     <div class="logo">
-      <%= image_tag "https://res.cloudinary.com/dgw2zajw1/image/upload/v1654254624/noun-vikings-4761686_yv4mou.png" %>
-      <h1>Tribu</h1>
+      <%= image_tag "https://res.cloudinary.com/dgw2zajw1/image/upload/v1654696610/noun-viking-4509152_1_dgueon.png" %>
+      <p class="logo-tribu ms-3 mt-2">Tribu</p>
     </div>
     <% end %>
 
@@ -15,7 +15,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Deviens un tributeur", new_event_path, class: "nav-link", class:"text-link" %>
+            <%= link_to "Ajoutez votre évènement", new_event_path, class: "nav-link", class:"text-link" %>
           </li>
           <li class="nav-item dropdown">
             <h2 class="m-2 p-2 pe-auto rounded-circle" role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><%= current_user.first_name.first + current_user.last_name.first%></h2>
@@ -27,7 +27,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Deviens un tributeur", new_event_path, class: "nav-link", class:"text-link" %>
+            <%= link_to "Ajoutez votre évènement", new_event_path, class: "nav-link", class:"text-link" %>
             <%= link_to "Log in", new_user_session_path, class: "nav-link", class:"btn-link", class:"px-4 py-1 fs-5 font-weight-bold radius-btn-square bg-purple border-0 text-light text-decoration-none" %>
           </li>
         <% end %>

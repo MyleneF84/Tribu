@@ -9,25 +9,25 @@
 
         <div class="row">
           <div class="col-4">
-            <%= f.input :photo, as: :file %>
+            <%= f.input :photo, label: false, as: :file %>
           </div>
           <div class="col-4">
-            <%= f.input :name %>
+            <%= f.input :name, placeholder: 'Numéro de téléphone',placeholder: 'Nom de votre activité', label: false, input_html: { class: "text-cards-home" } %>
           </div>
           <div class="col-4" id="address-form">
-            <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+            <%= f.input :address, label: false, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
             wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
           </div>
         </div>
         <div class="row">
           <div class="col-4">
-            <%= f.input :number_of_participants%>
+            <%= f.input :number_of_participants, placeholder: 'Nombre de participants', label: false, input_html: { class: "text-cards-home" }%>
           </div>
           <div class="col-4">
-            <%= f.input :price %>
+            <%= f.input :price, placeholder: 'Prix', label: false, input_html: { class: "text-cards-home" } %>
           </div>
           <div class="col-4">
-            <%= f.input :phone_number%>
+            <%= f.input :phone_number, placeholder: 'Numéro de téléphone', label: false, input_html: { class: "text-cards-home" }%>
           </div>
         </div>
         <div class="row">
@@ -37,18 +37,18 @@
         </div>
         <div class="row">
           <div class="description-form col-12">
-            <%= f.input :description, placeholder: 'Description'  %>
+            <%= f.input :description, placeholder: 'Description...', label: false, input_html: { class: "text-cards-home" } %>
           </div>
         </div>
         <div class="row">
           <div class="col-4 mt-3">
-            <%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} } %>
+            <%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} }, placeholder: 'Date de début', label: false, input_html: { class: "text-cards-home" } %>
           </div>
           <div class="col-4 mt-3">
-            <%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }} %>
+            <%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }}, placeholder: 'Date de fin', label: false, input_html: { class: "text-cards-home" } %>
           </div>
           <div class="col-4">
-            <div class="text-center mt-5"><%= f.submit "#{ @event.persisted? ? 'Updater' : 'Créer' } mon evenement", class: 'bg-purple border-0 btn btn-form fs-5 px-4 py-3  text-decoration-none text-white' %></div>
+            <div class="text-center mt-5"><%= f.submit "#{ @event.persisted? ? 'Updater' : 'Créer' } mon evenement", class: 'bg-purple border-0 btn btn-form px-4 py-3 text-decoration-none text-white' %></div>
           </div>
         </div>
       <% end %>
