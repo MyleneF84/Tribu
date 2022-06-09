@@ -2,7 +2,7 @@
   <div class="col-8 d-flex justify-content-around row">
     <h3 class="mb-5 mt-5 text-cards-home"> Evenements locaux à la carte </h2>
     <% @events.each do |event|%> 
-      <%= link_to event_path(event), class: "card-home shadow-lg p-3 mb-5 bg-white", style: "width: 18rem;" do %>
+      <%= link_to event_path(event), class: "bg-white card-home mb-3 p-3 shadow-tribu", style: "width: 18rem;" do %>
         <div class="d-block mb-3 mx-auto photo rounded text-center" >
           <% if event.photo.present? %>
             <%= cl_image_tag event.photo.key, height: 150, crop: :fill, class: "w-100 align-self-center rounded", style: "object-fit: cover;"%>

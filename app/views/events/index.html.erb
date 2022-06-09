@@ -29,7 +29,7 @@
               </div>
             </div>
               <div class="d-flex justify-content-center w-100">
-                <button class="px-5 py-2 text-white rounded fs-5 bg-purple border-0 text-decoration-none mt-3 mb-2">Rechercher</button>
+                <button class="border-0 btn-rechercher-index fs-5 mb-2 mt-3 px-5 py-2 text-white">Rechercher</button>
               </div>
           <% end %>
         </div>
@@ -42,7 +42,7 @@
   <div class="d-flex justify-content-between mt-5">
     <div class="col-8 d-flex justify-content-between row" id="events-container">
       <% @events.each do |event|%>
-        <%= link_to event_path(event), class: "card-home shadow-lg p-3 mb-3 bg-white" do %>
+        <%= link_to event_path(event), class: "bg-white card-home mb-3 p-3 shadow-tribu" do %>
           <div class="d-block mb-3 mx-auto photo rounded text-center" >
             <% if event.photo.present? %>
               <%= cl_image_tag event.photo.key, height: 150, class: "w-100 align-self-center rounded", style: "object-fit: cover;"%>
@@ -82,9 +82,9 @@
             </div>
           <div class="public-prive">
           <% if event.user %>
-              <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250533/noun-lock-821927_xdlair.png" >
+              <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654777807/noun-viking-4509158_lpqmuo.png" >
             <% else %>
-              <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250416/noun-public-4612037_oix7hj.png" >
+              <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654696610/noun-viking-4509152_1_dgueon.png" >
           <% end %>
           </div>
           </div>
