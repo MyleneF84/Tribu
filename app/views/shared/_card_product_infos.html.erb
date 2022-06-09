@@ -30,14 +30,17 @@
               <p class="badge tag-category m-1"><%= category %></p>
             <% end %>
           </div>
-      <div class="note">
-        Note : <% (@event.id.to_i.modulo(5) + 1).times do %>
-        <i class="fa-solid fa-star"></i>
-        <% end %>
-        <% (5 - (@event.id.to_i.modulo(5) + 1)).times do %>
-        <i class="fa-regular fa-star"></i>
-        <% end %>
+          <div class="note">
+            Note : <% (@event.id.to_i.modulo(5) + 1).times do %>
+            <i class="fa-solid fa-star"></i>
+            <% end %>
+            <% (5 - (@event.id.to_i.modulo(5) + 1)).times do %>
+            <i class="fa-regular fa-star"></i>
+            <% end %>
+          </div>
       </div>
+      <div class="mt-2 d-flex justify-content-end" style="color:#AB9DFF">
+        Partager : &nbsp; <%=social_share_button_tag(@event.name) %>
       </div>
       <div class="border-top description mt-4 pt-4 text-black-50 text-center ">
         <%= @event.description %>
