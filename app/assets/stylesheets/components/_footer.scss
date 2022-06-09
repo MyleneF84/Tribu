@@ -7,7 +7,7 @@
 
 .footer-copyright {
   font-family: "Barlow Semi Condensed", "Roboto", "sans-serif";
-  color: #FF5E5B;
+  color: $lavande;
   margin: 2ch;
 }
 
@@ -21,10 +21,12 @@
 
 .footer-links a {
   margin-top: 1ch;
-  color: $saumon;
+  color: $lavande;
 }
 
 .footer-links a:hover {
-  opacity: 1;
-  color:  $lavande
+  transition: background-color 0.30s ease-in-out;
+  color:  $white;
+  background-color: $lavande;
+  border-radius: 50px;
 }
