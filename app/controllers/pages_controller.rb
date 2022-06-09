@@ -4,7 +4,14 @@ class PagesController < ApplicationController
     @last_events = Event.all.last(4)
   end
 
+  def index
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @events = Event.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
+  end
+
   def dashboard
+    start_date = params.fetch(:start_at, Date.today).to_date
+    @events = Event.where(start_at: start_date.beginning_of_week..start_date.end_of_week)
     @created_events = current_user.events
     @participating_events = current_user.participating_events
     @markers = @participating_events.geocoded.map do |event|
