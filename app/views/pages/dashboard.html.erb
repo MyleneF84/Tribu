@@ -113,12 +113,15 @@
         </div>
       </div>
       <div class="mt-3 calendar">
-      <%= week_calendar do |date| %>
-      <%= date %>
-      <% end %>
-      <%#= week_calendar(events: @events) do |date, events| %>
-      <%#= date %>
-      <%# end %>
+        <%= week_calendar(attribute: :start_at, events: @participating_events) do |date, participating_events| %>
+          <%= date %>
+
+          <% participating_events.each do |participating_event| %>
+            <div>
+            * <%= participating_event.name %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
