@@ -6,3 +6,12 @@ body {
 p {
   margin-bottom: 0rem;
 }
+
+.btn-home-end {
+  border-radius: 5px; 
+  background-color: rgba(171,158,255,0.6);
+}
+
+.btn-home-end:hover {
+  background-color: $lavande;
+}
