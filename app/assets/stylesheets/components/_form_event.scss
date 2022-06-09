@@ -1,13 +1,18 @@
 .form-event {
-background-color: $jaune_pale;
+background-color: white;
 border-radius: 18px;
 color: $lavande;
 }
 
 .form-control {
- background-color: $white;
+ background-color: $white !important;
  box-shadow: 3px 3px 3px $light-gray;
 }
+
+.form-control {
+  background-color: $white;
+  box-shadow: 3px 3px 3px $light-gray;
+ }
 
 .tag-item {
   display: inline-block;
@@ -34,11 +39,11 @@ color: $lavande;
   color: white;
 }
 
-.container-form-event {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
+// .container-form-event {
+//   width: 50%;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
 .photo {
   margin-left: 5rem;
@@ -87,4 +92,22 @@ color: $lavande;
 
 .shadow-tribu {
   box-shadow: 0 0 10px 2px rgba(0,0,0,0.1);
+}
+
+// input::placeholder {
+//   color: red;
+// }
+
+.titre-form {
+  font-weight: 600;
+}
+
+.btn-form {
+border-radius: 5px;
+background-color: rgba(171,158,255,0.6);
+font-weight: 700;
+}
+
+.btn-form:hover {
+  background-color: $lavande;
 }
