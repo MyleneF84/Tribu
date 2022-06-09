@@ -10,7 +10,9 @@
               <div class="m-0 p-0">
                 <%= f.input :categories,
                   as: :check_boxes,
-                  collection: ["brocante-vide-grenier", "fete", "marche", "repas-degustation", "musique", "exposition", "balades-visites", "nature-environnement", "sport", "entraide", "arts", "plantes-potager"],
+                  collection: Event::CATEGORY,
+                  label_method: :first,
+                  value_method: :last,
                   input_html: { class: "tag-selector" }, wrapper_html: { class: "justify-content-center w-100 d-flex flex-wrap" } %>
               </div>
             </div>

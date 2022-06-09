@@ -1,6 +1,7 @@
 <div class="container mt-5 mb-6">
   <div class="col-8 d-flex justify-content-around row">
     <h3 class="mb-5 mt-5 text-cards-home"> Evenements locaux à la carte </h2>
+
     <% @events.each do |event|%> 
       <%= link_to event_path(event), class: "bg-white card-home mb-3 p-3 shadow-tribu", style: "width: 18rem;" do %>
         <div class="d-block mb-3 mx-auto photo rounded text-center" >
@@ -13,10 +14,17 @@
           <p class="mb-3 text-black-50"><%= event.address %></p>
         </div>
           <% event.category.each do |category| %>
+            <% if category == "fete" %>
+              <p class="badge m-1 tag-category">fête</p>
+            <% elsif category == "marche" %>
+              <p class="badge m-1 tag-category">marché</p>
+            <% elsif category == "repas-degustation" %>
+              <p class="badge m-1 tag-category">repas-dégustation</p>
+            <% else %>
               <p class="badge m-1 tag-category"><%= category %></p>
             <% end %>
+          <% end %>
       <% end %>
     <% end %>
   </div>
 </div>
-
