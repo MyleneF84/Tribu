@@ -11,6 +11,7 @@
                 <%= f.input :categories,
                   as: :check_boxes,
                   collection: Event::CATEGORY,
+                  checked: (params[:query][:categories] if params[:query]),
                   label_method: :first,
                   value_method: :last,
                   input_html: { class: "tag-selector" }, wrapper_html: { class: "justify-content-center w-100 d-flex flex-wrap" } %>
@@ -18,7 +19,7 @@
             </div>
             <div class="search-align w-50 d-flex flex-column ps-3 pe-1">
               <div class="w-100">
-                <%= f.input :city, label: false, input_html: { data: {address_home_autocomplete_target: "city", value: (params[:query][:city] if params[:query])}, class: 'd-none' },
+                <%= f.input :city, label: false, input_html: { data: {address_home_autocomplete_target: "city"}, value: (params[:query][:city] if params[:query]), class: 'd-none' },
                 wrapper_html: { data: { controller: "address-home-autocomplete", address_home_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} } %>
               </div>
               <div class="w-100 d-flex">
