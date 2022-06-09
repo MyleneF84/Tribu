@@ -1,19 +1,25 @@
-<h1>Bienvenue sur ton dashboard <%= @current_user.first_name %> 🥳</h1>
 
 <div class="container mx-auto">
-  <div class="row">
-    <div class = "my-3 d-flex justify-content-around">
-      <div class = "tab-dashboard">
-        <ul class="justify-content-around list-inline tabs-underlined nav nav-tabs">
-          <li class="nav-item"><%= link_to 'Hôte', dashboard_path(index: "host"), class:"nav-link #{ 'active' if (params[:index] == 'host' || params[:index] == nil)}" %></li>
-          <li class="nav-item"><%= link_to 'Participant', dashboard_path(index: "bookings"), class:"nav-link  #{ 'active' if params[:index] == 'bookings'}"  %></li>
-          <li class="nav-item"><%= link_to 'Toutes mes activités', dashboard_path(index: "all"), class:"nav-link  #{ 'active' if params[:index] == 'all'}"  %></li>
-        </ul>
-      </div>
+<div class="fs-3 mb-5 text-center title-dashboard">Bienvenue <%= @current_user.first_name %>          <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654696610/noun-viking-4509152_1_dgueon.png" ></div>
 
-      <h3>Prochains evenements</h3>
+<div class="d-flex tabs-map-tittle">
+  <div class="tabs col-6">
+    <div class="row">
+      <div class = "my-3 d-flex">
+        <div class = "tab-dashboard">
+          <ul class="justify-content-around list-inline tabs-underlined nav nav-tabs">
+            <li class="nav-item"><%= link_to 'Hôte', dashboard_path(index: "host"), class:"nav-link #{ 'active' if (params[:index] == 'host' || params[:index] == nil)}" %></li>
+            <li class="nav-item"><%= link_to 'Participant', dashboard_path(index: "bookings"), class:"nav-link  #{ 'active' if params[:index] == 'bookings'}"  %></li>
+            <li class="nav-item"><%= link_to 'Toutes mes activités', dashboard_path(index: "all"), class:"nav-link  #{ 'active' if params[:index] == 'all'}"  %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="col-6 d-flex fs-4 justify-content-center map-titre pt-4 text-black-50">Prochains evenements
+  </div>
+</div>
+
 
   <div class="row">
     <div class="col-6">
@@ -21,33 +27,38 @@
 
         <div class="card-created-evenement">
           <% @created_events.each do |created_event| %>
-
-            <div class="card-dash mb-3 d-flex" style="max-width: 640px">
-
-                <% if created_event.photo.present? %>
-                  <%= cl_image_tag created_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
-                <% end %>
-
-              <div class="card-dash-infos">
-                <h5><%= created_event.name %></h5>
-                <p><%= created_event.address %></p>
-                <p><small class="text-muted"> Du <%= created_event.start_at %> au <%= created_event.end_at %></small></p>
-                <% created_event.bookings.where.not(status: "declined").each do |booking| %>
-                  <div>
-                    Demande de <%= booking.user.first_name %>
-                    <% if booking.status == "en-attente" %>
-                      <%= link_to(accept_booking_path(booking), method: :post) do %>
-                        <i class="fa-solid fa-check" style="color:#36C40F"></i>
-                      <% end %>
-                      <%= link_to(decline_booking_path(booking), method: :post) do %>
-                        <i class="fa-solid fa-xmark" style="color:#FF4145"></i>
-                      <% end %>
-                      <%#= link_to 'Refuser', decline_booking_path(booking), class: "btn btn-danger", method: :post %>
-                    <% end %>
+            <%= link_to event_path(created_event), class: "" do %>
+              <div class="border card-dash-created d-flex justify-content-between mb-3" style="max-width: 640px">
+                  <% if created_event.photo.present? %>
+                    <%= cl_image_tag created_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+                  <% end %>
+                <div class="flex-grow-1 text-content-dash">
+                  <div class="ms-3 text-muted title-name-village">
+                    <h5><%= created_event.name %></h5>
+                    <p class="fst-italic"> <small><%= created_event.address %></small></p>
                   </div>
-                <% end %>
+                  <div class="date-dash pt-2 text-center text-muted">
+                    <p>Du <%= created_event.start_at.strftime("%d / %m") %> au <%= created_event.end_at.strftime("%d / %m") %><%#= participating_event.category %></p>
+                  </div>
+                  <div class="dash-validate">
+                  <% created_event.bookings.where.not(status: "declined").each do |booking| %>
+                    <div class="ms-3 text-black text-black-50">
+                      Demande de <%= booking.user.first_name %>
+                      <% if booking.status == "en-attente" %>
+                        <%= link_to(accept_booking_path(booking), method: :post) do %>
+                          <i class="fa-solid fa-check" style="color:#36C40F"></i>
+                        <% end %>
+                        <%= link_to(decline_booking_path(booking), method: :post) do %>
+                          <i class="fa-solid fa-xmark" style="color:#FF4145"></i>
+                        <% end %>
+                        <%#= link_to 'Refuser', decline_booking_path(booking), class: "btn btn-danger", method: :post %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -55,24 +66,38 @@
       <% if params[:index] == "bookings" || params[:index] == "all"%>
         <div class="card-created-evenement">
           <% @participating_events.each do |participating_event| %>
-            <div class="card-dash mb-3 d-flex border border-primary" style="max-width: 640px">
-              <% if participating_event.photo.present? %>
-                <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
-              <% end %>
-              <div class="card-dash-infos">
-                <div class="card-body">
-                  <h5><%= participating_event.name %></h5>
-                  <p><%= participating_event.address %></p>
-                  <p><small class="text-muted"><%= participating_event.price %> €</small></p>
-                  <p><small>Du <%= participating_event.start_at %> au <%= participating_event.end_at %><%#= participating_event.category %></small></p>
-                  <p>
-                    <%# @participating_event.bookings.where.not(rating: nil).to_i.times do  %>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <%# end %>
-                  </p>
+            <%= link_to event_path(participating_event), class: "" do %>
+              <div class="border card-dash d-flex justify-content-between mb-3" style="max-width: 640px">
+                  <% if participating_event.photo.present? %>
+                    <%= cl_image_tag participating_event.photo.key, height: 150, width: 200, crop: :fill, class: "align-self-center rounded"%>
+                  <% end %>
+                <div class="flex-grow-1 text-content-dash">
+                  <div class="ms-3 text-muted title-name-village">
+                    <h5><%= participating_event.name %></h5>
+                    <p class="fst-italic"> <small><%= participating_event.address %></small></p>
+                  </div>
+                  <div class="date-dash pt-3 text-center text-muted">
+                    <p>Du <%= participating_event.start_at.strftime("%d / %m") %> au <%= participating_event.end_at.strftime("%d / %m") %><%#= participating_event.category %></p>
+                  </div>
+                  <div class="card-dash-infos d-flex justify-content-between me-2 ms-2 pt-2">
+                    <div class="dash-price">
+                      <% if participating_event.price.eql? 0 %>
+                        <span class="badge m-1 tag-price">gratuit</span>
+                        <% else %>
+                        <span class="badge m-1 tag-price" ><%= participating_event.price %>€</span>
+                      <% end %>
+                    </div>
+                    <div class="public-prive">
+                      <% if participating_event.user %>
+                        <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250533/noun-lock-821927_xdlair.png" >
+                        <% else %>
+                        <img src="https://res.cloudinary.com/dgw2zajw1/image/upload/v1654250416/noun-public-4612037_oix7hj.png" >
+                      <% end %>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -88,7 +113,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 

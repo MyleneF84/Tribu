@@ -17,3 +17,25 @@
   opacity: 1;
   border-bottom: 3px solid #555555;
 }
+
+.nav-tabs .nav-link.active {
+  color: white;
+  background-color: $lavande;
+  border-color: #dee2e6 #dee2e6 #DDDDDD;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: grey;
+  text-decoration: none;
+  transition: color 0.15s
+}
+
+.nav-link:hover {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: $lavande;
+  text-decoration: none;
+  transition: color 0.15s
+}
