@@ -3,10 +3,9 @@
 <%# <% @last_events.each do |event| %>
 <%# <strong><%= link_to event.name, event_path(event)</strong> %>
 <%# <% end %>
-
+<%= render "shared/text" %>
 <%= render "shared/cards_home" %>
-<div class="text-center p-6 m-6 mb-5">
-<%= link_to "Voir toutes les activités", events_path, class: "bg-purple border-0 fs-6 p-3 px-3 py-2-5 rounded-2 text-center text-decoration-none text-white" %>
-</div>
+
+
 <%# <%= link_to "Proposez une activité", new_event_path %>
 <%# <%= render "shared/buttons" %>
