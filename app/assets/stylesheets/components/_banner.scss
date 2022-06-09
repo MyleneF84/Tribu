@@ -1,10 +1,18 @@
 .banner {
-  background-image: url(https://community.hivency.com/hubfs/Top%2010%20des%20meilleurs%20amis-1.jpg);
+  // background-image: url(https://community.hivency.com/hubfs/Top%2010%20des%20meilleurs%20amis-1.jpg);
   background-position: center center;
   text-align: center;
   background-size: cover;
   padding: 30px 0;
-  // height: 50vh;
+  position: relative;
+  overflow: hidden;
+  .video {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
 }
 .superpose {
   background-color: black;
@@ -15,11 +23,11 @@
 }
 
 .litle {
-  padding: 150px;
-  margin-top: -250px;
+  padding: 160px;
+  margin-top: -220px;
   // position: relative;
   position: absolute;
-  padding-top: 90px;
+  padding-top: 130px;
 }
 
 .big{
@@ -47,7 +55,7 @@
 // .banner-search-card {
 //  }
 .text-banner {
-  margin-bottom: 9rem !important;
+  margin-bottom: 12rem !important;
   text-align: center;
   margin-top: 1px;
   color: $white;
