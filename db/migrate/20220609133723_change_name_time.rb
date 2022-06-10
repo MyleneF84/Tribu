@@ -4,3 +4,4 @@ class ChangeNameTime < ActiveRecord::Migration[7.0]
     rename_column :events, :end_at, :end_time
   end
 end
+
