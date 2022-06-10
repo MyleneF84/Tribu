@@ -50,16 +50,16 @@ categories.each do |category|
     event_name = element.search('[itemprop="name"]').first.inner_html
     description = element.search(".dsc p").first.inner_html
     address = element.search('[itemprop="address"]').inner_text
-    start_at = element.search('[itemprop="startDate"]').first.attributes["content"].value
-    end_at = element.search('[itemprop="endDate"]').first.attributes["content"].value
+    start_time = element.search('[itemprop="startDate"]').first.attributes["content"].value
+    end_time = element.search('[itemprop="endDate"]').first.attributes["content"].value
     img = "https://www.eterritoire.fr/#{element.search('img.i.e').first.attributes["src"].value}"
     event1 = Event.create!(
       name: event_name,
       description: description,
       address: address,
       price: "0",
-      start_at: Date.parse(start_at),
-      end_at: Date.parse(end_at),
+      start_time: Date.parse(start_time),
+      end_time: Date.parse(end_time),
       phone_number: "0148658596",
       category: [category]
     )
@@ -76,8 +76,8 @@ event1 = Event.create!(
   address: "8 Rue du Couvent, 13430 Eyguières",
   price: "15",
   category: [categories_private[1], categories_private[3]],
-  start_at: Date.today,
-  end_at: Date.tomorrow,
+  start_time: Date.today,
+  end_time: Date.tomorrow,
   phone_number: "0148658596",
   user: user1
 )
@@ -90,8 +90,8 @@ event2 = Event.create!(
   address: "Place Victor Hugo, 13560 Sénas",
   price: "10",
   category: [categories_private[5]],
-  start_at: Date.yesterday,
-  end_at: Date.today,
+  start_time: Date.yesterday,
+  end_time: Date.today,
   phone_number: "0175496352",
   user: user2
 )
@@ -104,8 +104,8 @@ event3 = Event.create!(
   address: "Avenue Louis Sammut, 13500 Martigues",
   price: "5",
   category: [categories_private[0], categories_private[2]],
-  start_at: Date.today,
-  end_at: Date.tomorrow,
+  start_time: Date.today,
+  end_time: Date.tomorrow,
   phone_number: "0699584256",
   user: user3
 )

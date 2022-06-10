@@ -38,8 +38,8 @@
           <p><%= link_to event.name, event_path(event) %><br></p>
           <%= event.address %>
           <%= event.description %></p>
-          <p>Du <%= event.start_at %>
-          au <%= event.end_at %></p>
+          <p>Du <%= event.start_time %>
+          au <%= event.end_time %></p>
           <% event.category.each do |category| %>
             <span class="badge tag-price rounded-pill mb-auto end-100"><p><%= category %></p></span>
           <% end %>

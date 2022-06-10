@@ -71,8 +71,8 @@
 
           <div class="d-flex date-adress-phone justify-content-lg-between text-black-50">
             <div class="date-index">
-              <p>Du <%= event.start_at.strftime("%d / %m") %></p>
-              <p>au <%= event.end_at.strftime("%d / %m") %></p>
+              <p>Du <%= event.start_time.strftime("%d / %m") %></p>
+              <p>au <%= event.end_time.strftime("%d / %m") %></p>
             </div>
             <div class="ms-5">
                 <h6>  <strong></strong><%= event.phone_number %></h6>

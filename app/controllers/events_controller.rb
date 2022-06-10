@@ -8,10 +8,10 @@ class EventsController < ApplicationController
     @events = @events.where("address ILIKE ?", "%#{params[:query][:city]}%") if params.dig(:query, :city) && params.dig(:query, :city) != ""
     # search par date
     if params.dig(:query, :start_date).present? && params.dig(:query, :start_date) != ""
-      @events = @events.where("start_at >= ?", params[:query][:start_date]).where("start_at <= ?", params[:query][:end_date]).distinct.or(
-        @events.where("end_at >= ?", params[:query][:start_date]).where("end_at <= ?", params[:query][:end_date]).distinct
+      @events = @events.where("start_time >= ?", params[:query][:start_date]).where("start_time <= ?", params[:query][:end_date]).distinct.or(
+        @events.where("end_time >= ?", params[:query][:start_date]).where("end_time <= ?", params[:query][:end_date]).distinct
       ).or(
-        @events.where("start_at <= ?", params[:query][:start_date]).where("end_at >= ?", params[:query][:end_date]).distinct
+        @events.where("start_time <= ?", params[:query][:start_date]).where("end_time >= ?", params[:query][:end_date]).distinct
       )
     end
     # search par category
@@ -93,6 +93,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :address, :phone_number,
-      :price, :start_at, :end_at, :number_of_participants, :photo, :category)
+      :price, :start_time, :end_time, :number_of_participants, :photo, :category)
   end
 end

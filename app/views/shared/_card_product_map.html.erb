@@ -13,18 +13,18 @@
 
     <div class="card-product-infos-bottom p-3">
       <div class="date text-white">
-        <p> Du <%= @event.start_at.strftime("%d / %m") %>  au  <%= @event.end_at.strftime("%d / %m") %></p>
+        <p> Du <%= @event.start_time.strftime("%d / %m") %>  au  <%= @event.end_time.strftime("%d / %m") %></p>
       </div>
     <div>
 
     <div class="card-product-infos-address d-flex fs-6 justify-content-between pt-4 text-white">
-      <div class="address mb-2 px-2 py-1 rounded-3"><strong><%= @event.address %></strong></div><div> <%= @event.phone_number %></div>
+      <div class="address text-white mb-2 px-2 py-1 rounded-3"><strong><%= @event.address %></strong></div><div> <%= @event.phone_number %></div>
       <%# if @event.number_of_participants.present? %>
           <%# <p>Nombre de participants : <%= @event.number_of_participants %>
       <%# end %>
     </div>
     <% unless current_user&.id == @event.user_id %>
-    <%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post }, class: "reservation-btn border-0 fs-5 py-2 rounded-3 text-decoration-none text-resa" %>
+    <%= link_to "Reservez cette activité", event_bookings_path(@event), data: {turbo_method: :post }, class: "border-0 d-flex mt-4 justify-content-center me-5 ms-5 py-2 reservation-btn text-decoration-none" %>
     <% end %>
   </div>
 </div>

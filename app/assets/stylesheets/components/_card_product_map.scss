@@ -7,19 +7,35 @@
   // height: 600px;
 }
 
-.text-resa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $saumon;
-  margin-top: 3rem;
+// .text-resa {
+//   display: block;
+//   align-items: center;
+//   justify-content: center;
+//   color: $saumon;
+//   margin-top: 3rem;
+//   background-color: white;
+//   margin-right: 50px;
+//   margin-left: 50px;
+//   transition: color 0.15s
+// }
+
+// .text-resa:hover {
+//   display: block;
+//   color: white;
+//   background-color: rgba(255, 94, 91, 0.2);
+//   transition: color 0.15s
+// }
+
+.reservation-btn {
+  border-radius: 5px;
   background-color: white;
-  margin-right: 50px;
-  margin-left: 50px;
+  font-weight: 700;
+  color: $saumon;
 }
 
-.text-resa:hover {
-  color: red;
+.reservation-btn:hover {
+  background-color: $lavande;
+  color: white;
 }
 
 .date {
@@ -31,9 +47,39 @@
 }
 
 .address {
-background-color: rgba(254, 248, 248, 0.4);
+background-color: rgba(254, 248, 248, 0.6);
 }
 
 .address > h6 {
 padding: 3px;
 }
+
+.text-saumon {
+  color: $saumon;
+}
+
+// .nav-link {
+//   display: block;
+//   padding: 0.5rem 1rem;
+//   color: grey;
+//   text-decoration: none;
+//   transition: color 0.15s
+// }
+
+// .nav-link:hover {
+//   display: block;
+//   padding: 0.5rem 1rem;
+//   color: $lavande;
+//   text-decoration: none;
+//   transition: color 0.15s
+// }
+
+// .btn-activites-home {
+//   border-radius: 5px;
+//   background-color: rgba(171,158,255,0.6);
+//   font-weight: 700;
+// }
+
+// .btn-activites-home:hover {
+//   background-color: $lavande;
+// }
