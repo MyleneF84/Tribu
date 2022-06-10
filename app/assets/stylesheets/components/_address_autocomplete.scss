@@ -41,7 +41,6 @@
     max-width: unset !important;
   }
 
-  // tout le style en rapport avec search index
 }
 
 #address-form {
@@ -50,8 +49,5 @@
     width: 100% !important;
     justify-content: space-between;
     display: flex;
-  }
-  .mapboxgl-ctrl-geocoder {
-    max-width: unset !important;
   }
 }
