@@ -42,10 +42,10 @@
         </div>
         <div class="row">
           <div class="col-4 mt-3">
-            <%= f.input :start_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} }, placeholder: 'Date de début', label: false, input_html: { class: "text-cards-home" } %>
+            <%= f.input :start_time, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeStart"} }, placeholder: 'Date de début', label: false %>
           </div>
           <div class="col-4 mt-3">
-            <%= f.input :end_at, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }}, placeholder: 'Date de fin', label: false, input_html: { class: "text-cards-home" } %>
+            <%= f.input :end_time, as: :string, required: false, input_html: { data: { "flatpickr-target": "rangeEnd" }}, placeholder: 'Date de fin', label: false %>
           </div>
           <div class="col-4">
             <div class="text-center mt-5"><%= f.submit "#{ @event.persisted? ? 'Updater' : 'Créer' } mon evenement", class: 'bg-purple border-0 btn btn-form px-4 py-3 text-decoration-none text-white' %></div>

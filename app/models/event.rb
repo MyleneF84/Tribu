@@ -24,7 +24,7 @@ class Event < ApplicationRecord
     sport entraide arts plantes-potager]
   validates :category, inclusion: { in: LIST }
   validates :phone_number, numericality: { only_integer: true }
-  validates :start_at, :end_at, presence: true
+  validates :start_time, :end_time, presence: true
   has_one_attached :photo
   validates :price, presence: true
   geocoded_by :address
