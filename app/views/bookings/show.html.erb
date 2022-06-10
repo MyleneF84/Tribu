@@ -3,8 +3,8 @@
 <%if policy(@booking).show? %>
   <% @bookings.each do |booking| %>
     <%= booking.user.first_name %>
-    <%= booking.event.start_at %>
-    <%= booking.event.end_at %>
+    <%= booking.event.start_time %>
+    <%= booking.event.end_time %>
     <%= booking.event.address %>
     <%= booking.event.name %>
     <% end %>

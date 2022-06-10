@@ -10,8 +10,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    start_date = params.fetch(:start_at, Date.today).to_date
-    @events = Event.where(start_at: start_date.beginning_of_week..start_date.end_of_week)
+    start_date = params.fetch(:start_time, Date.today).to_date
+    @events = Event.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
     @created_events = current_user.events
     @participating_events = current_user.participating_events
     @markers = @participating_events.geocoded.map do |event|

@@ -44,7 +44,7 @@ Alors <%= @current_user.first_name %>, qu'allez-vous découvrir aujourd'hui ?   
                     <p class="fst-italic"> <small><%= created_event.address %></small></p>
                   </div>
                   <div class="date-dash pt-2 text-center text-muted">
-                    <p>Du <%= created_event.start_at.strftime("%d / %m") %> au <%= created_event.end_at.strftime("%d / %m") %><%#= participating_event.category %></p>
+                    <p>Du <%= created_event.start_time.strftime("%d / %m") %> au <%= created_event.end_time.strftime("%d / %m") %><%#= participating_event.category %></p>
                   </div>
                   <div class="dash-validate">
                   <% created_event.bookings.where.not(status: "declined").each do |booking| %>
@@ -83,7 +83,7 @@ Alors <%= @current_user.first_name %>, qu'allez-vous découvrir aujourd'hui ?   
                     <p class="fst-italic"> <small><%= participating_event.address %></small></p>
                   </div>
                   <div class="date-dash pt-3 text-center text-muted">
-                    <p>Du <%= participating_event.start_at.strftime("%d / %m") %> au <%= participating_event.end_at.strftime("%d / %m") %><%#= participating_event.category %></p>
+                    <p>Du <%= participating_event.start_time.strftime("%d / %m") %> au <%= participating_event.end_time.strftime("%d / %m") %><%#= participating_event.category %></p>
                   </div>
                   <div class="card-dash-infos d-flex justify-content-between me-2 ms-2 pt-2">
                     <div class="dash-price">
@@ -119,12 +119,11 @@ Alors <%= @current_user.first_name %>, qu'allez-vous découvrir aujourd'hui ?   
         </div>
       </div>
       <div class="mt-3 calendar">
-        <%= week_calendar(attribute: :start_at, events: @participating_events) do |date, participating_events| %>
+        <%= week_calendar(attribute: :start_time, events: @participating_events) do |date, participating_events| %>
           <%= date %>
-
           <% participating_events.each do |participating_event| %>
             <div>
-            * <%= participating_event.name %>
+            <%= participating_event.name %>
             </div>
           <% end %>
         <% end %>
