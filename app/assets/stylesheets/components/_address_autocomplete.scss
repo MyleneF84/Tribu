@@ -51,3 +51,7 @@
     display: flex;
   }
 }
+
+.mapboxgl-ctrl-geocoder--input:focus {
+  outline: none;
+}
