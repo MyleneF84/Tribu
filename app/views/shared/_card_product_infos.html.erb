@@ -55,7 +55,10 @@
   <% end %>
 
   <%#= button_to "Destroy this event", @event, data: {turbo_method: :delete} if policy(@event).destroy? %>
-  <%= link_to "Supprimer", @event, class: "me-2 text-warning" , method: :delete if policy(@event).destroy? %>
+  <%#= link_to "Supprimer", @event, class: "me-2 text-warning", method: :delete if policy(@event).destroy? %>
+    <%= link_to "Supprimer", @event, class: "me-2 text-warning", data: {turbo_method: :delete} if policy(@event).destroy? %>
+
+
   <%# <%= link_to 'Dashboard', dashboard_path(current_user) %>
   </div>
       <div class="border-top description pt-4 text-black-50 text-center">

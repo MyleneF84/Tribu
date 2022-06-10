@@ -20,9 +20,9 @@
           <li class="nav-item dropdown">
             <h2 class="m-2 p-2 pe-auto rounded-circle" role='button' id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><%= current_user.first_name.first + current_user.last_name.first%></h2>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Chercher un évent", events_path, class: "dropdown-item" %>
-              <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Chercher un évènement", events_path, class: "dropdown-item" %>
+              <%= link_to "Tableau de bord", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
